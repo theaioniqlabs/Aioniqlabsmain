@@ -69,6 +69,7 @@ const DestinationCard = React.forwardRef<HTMLDivElement, DestinationCardProps>(
               }}
               onClick={(e) => {
                 e.stopPropagation()
+                e.preventDefault()
                 window.location.href = href
               }}
             >

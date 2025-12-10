@@ -34,7 +34,7 @@ workflow:
 project_structure:
   root_files:
     - package.json
-    - pnpm-lock.yaml
+    - package-lock.json
     - next.config.js
     - tsconfig.json
     - .cursorrules

@@ -10,7 +10,7 @@ These are the original AiONIQ components that should remain unchanged:
 - `AvatarGroup.tsx` - Avatar group component
 - `Banner.tsx` - Banner image component with responsive images
 - `Icon.tsx` - Icon component for SVG icons
-- `CardNav/` - Navigation card components
+- Navigation components are in `/components/navigation/`
 - `ImagePlaceholder.tsx` - Image placeholder component
 
 ## shadcn/ui Primitives
@@ -33,7 +33,7 @@ These are Radix UI-based primitives from shadcn/ui, customized to use AiONIQ des
 ✅ **Use custom AiONIQ components when:**
 - Building features that match existing AiONIQ design system exactly
 - Using existing components (Button, AvatarGroup, Banner)
-- Navigation components (MainNav, CardNav)
+- Navigation components (Design9Nav)
 - Components that need specific AiONIQ styling not available in shadcn
 
 ## Token Mapping

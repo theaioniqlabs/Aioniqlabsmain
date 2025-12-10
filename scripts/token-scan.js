@@ -145,16 +145,30 @@ function scanFile(filePath, tokens) {
 }
 
 function getAllFiles(dir, fileList = []) {
-  const files = fs.readdirSync(dir)
-  files.forEach(file => {
-    const filePath = path.join(dir, file)
-    const stat = fs.statSync(filePath)
-    if (stat.isDirectory()) {
-      getAllFiles(filePath, fileList)
-    } else if (shouldScanFile(filePath)) {
-      fileList.push(filePath)
+  try {
+    const files = fs.readdirSync(dir)
+    files.forEach(file => {
+      try {
+        const filePath = path.join(dir, file)
+        const stat = fs.statSync(filePath)
+        if (stat.isDirectory()) {
+          getAllFiles(filePath, fileList)
+        } else if (shouldScanFile(filePath)) {
+          fileList.push(filePath)
+        }
+      } catch (e) {
+        // Skip files/directories that can't be accessed (permissions, symlinks, etc.)
+        if (e.code !== 'ENOENT' && e.code !== 'EACCES' && e.code !== 'UNKNOWN') {
+          console.warn(`Warning: Could not access ${filePath}:`, e.message)
+        }
+      }
+    })
+  } catch (e) {
+    // Skip directories that can't be accessed
+    if (e.code !== 'ENOENT' && e.code !== 'EACCES' && e.code !== 'UNKNOWN') {
+      console.warn(`Warning: Could not access directory ${dir}:`, e.message)
     }
-  })
+  }
   return fileList
 }
 

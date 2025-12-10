@@ -73,18 +73,17 @@ export const TypewriterTestimonial: React.FC<TypewriterTestimonialProps> = ({ te
         audioPlayerRef.current = newAudio;
         
         // Check if audio can be loaded before attempting to play
-        newAudio.addEventListener('error', (e) => {
-          console.warn(`Audio file not found or failed to load: /audio/${audioFile}`, e);
+        newAudio.addEventListener('error', () => {
+          // Audio file not found or failed to load - silently fail
           audioPlayerRef.current = null;
         });
         
-        newAudio.play().catch(e => {
-          // Audio playback failed (user interaction required, file missing, etc.)
-          console.warn(`Audio playback prevented or failed for: /audio/${audioFile}`, e);
+        newAudio.play().catch(() => {
+          // Audio playback failed (user interaction required, file missing, etc.) - silently fail
           audioPlayerRef.current = null;
         });
-      } catch (e) {
-        console.warn(`Failed to create audio element for: /audio/${audioFile}`, e);
+      } catch {
+        // Failed to create audio element - silently fail
         audioPlayerRef.current = null;
       }
     }

@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/home/dev/app:cached
+      - pnpm-store:/home/dev/.pnpm-store
+      - node-modules:/home/dev/app/node_modules
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+    command: ["bash", "./scripts/dev-start.sh"]
+    tty: true
+volumes:
+  pnpm-store:
+  node-modules:
+

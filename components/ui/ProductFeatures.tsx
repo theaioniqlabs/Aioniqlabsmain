@@ -399,15 +399,17 @@ export const ProductFeatures: React.FC<ProductFeaturesProps> = ({
                   </p>
                 </div>
                 <Button
-                  href="#"
+                  asChild
                   variant="secondary"
                   className="w-auto self-start mt-8 flex items-center gap-2"
                   style={{
                     marginTop: 'var(--spacing-stack-gap-md)',
                   }}
                 >
-                  <span>Explore Now</span>
-                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                  <a href="#">
+                    <span>Explore Now</span>
+                    <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                  </a>
                 </Button>
               </div>
             </div>
@@ -453,19 +455,20 @@ export const ProductFeatures: React.FC<ProductFeaturesProps> = ({
               </div>
               {feature.action && (
                 <Button
+                  asChild
                   variant="ghost"
                   size="sm"
-                  href={feature.action.href}
-                  onClick={feature.action.onClick}
                   className="mt-6 w-fit flex items-center gap-2"
                   style={{
                     marginTop: 'var(--spacing-stack-gap-md)',
                   }}
                 >
-                  {feature.action.label === 'Configure' && (
-                    <Settings className="w-4 h-4 text-orange-500" aria-hidden="true" />
-                  )}
-                  {feature.action.label}
+                  <a href={feature.action.href} onClick={feature.action.onClick}>
+                    {feature.action.label === 'Configure' && (
+                      <Settings className="w-4 h-4 text-orange-500" aria-hidden="true" />
+                    )}
+                    {feature.action.label}
+                  </a>
                 </Button>
               )}
             </div>

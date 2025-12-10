@@ -1,0 +1,17 @@
+# Dev container protection snippet
+# Merge this section into your existing .cursorrules file
+
+dev_container_protection:
+  protected_paths:
+    - ".devcontainer/**"
+    - "Dockerfile"
+    - "docker-compose*.yml"
+    - ".dockerignore"
+    - "scripts/dev-start.sh"
+    - "scripts/README.md"
+  rules:
+    - "Do not delete or modify dev container files without explicit approval"
+    - "Dev container files are excluded from cleanup scans"
+    - "If modifying Dockerfile, ensure pnpm version matches project requirements (currently 10.23.0)"
+    - "Dev container files should not be archived or moved during cleanup operations"
+

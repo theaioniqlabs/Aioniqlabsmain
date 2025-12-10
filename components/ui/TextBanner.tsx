@@ -11,7 +11,7 @@ export interface TextBannerProps {
 
 /**
  * TextBanner component - Banner with centered logo
- * Matches Design5Nav height (h-16 = 64px) and container constraints
+ * Matches navigation height (h-16 = 64px) and container constraints
  * Uses white background
  */
 export const TextBanner: React.FC<TextBannerProps> = ({
@@ -23,7 +23,7 @@ export const TextBanner: React.FC<TextBannerProps> = ({
     <section
       className={`w-full ${className}`}
       style={{
-        height: '64px', // h-16 - matches Design5Nav
+        height: '64px', // h-16 - matches navigation height
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',

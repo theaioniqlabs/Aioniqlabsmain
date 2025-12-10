@@ -79,8 +79,8 @@ export function Footer({
         backgroundColor: 'var(--color-background-primary)',
         paddingTop: 'var(--spacing-section-vertical-desktop)',
         paddingBottom: 'var(--spacing-section-vertical-desktop)',
-        background: 'radial-gradient(35% 128px at 50% 0%, var(--color-text-inverse-08), transparent)',
-        minHeight: '300px',
+        background: `radial-gradient(35% var(--gradient-radial-size) at 50% 0%, var(--color-text-inverse-08), transparent)`,
+        minHeight: 'var(--spacing-container-min-height-footer)',
         position: 'relative',
         zIndex: 1,
       }}

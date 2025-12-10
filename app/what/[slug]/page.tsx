@@ -45,7 +45,10 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                 alt={project.title}
                 width={1080}
                 height={600}
-                className="w-full h-[280px] md:h-[400px] object-cover rounded-2xl"
+                className="w-full object-cover rounded-2xl"
+                style={{
+                  height: 'var(--spacing-image-height-hero)',
+                }}
               />
             )}
             {project.heroImages[1] && (
@@ -54,7 +57,10 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                 alt={`${project.title} interface`}
                 width={1080}
                 height={600}
-                className="w-full h-[280px] md:h-[400px] object-cover rounded-2xl"
+                className="w-full object-cover rounded-2xl"
+                style={{
+                  height: 'var(--spacing-image-height-hero)',
+                }}
               />
             )}
           </div>
@@ -69,7 +75,10 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                   alt={`${project.title} view ${index + 1}`}
                   width={1080}
                   height={500}
-                  className="w-full h-[220px] md:h-[280px] object-cover rounded-2xl"
+                  className="w-full object-cover rounded-2xl"
+                  style={{
+                    height: 'var(--spacing-image-height-gallery)',
+                  }}
                 />
               ))}
             </div>

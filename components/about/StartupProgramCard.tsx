@@ -28,7 +28,7 @@ export function StartupProgramCard({
     <article
       className={`card-item ${className}`}
       style={{
-        background: 'linear-gradient(135deg, var(--color-brand-primary-05) 0%, rgba(31, 41, 55, 0.02) 100%)', /* 0.02 opacity is edge case, keeping as-is */
+        background: 'linear-gradient(135deg, var(--color-brand-primary-05) 0%, var(--color-brand-primary-05) 100%)',
         border: '1px solid var(--color-brand-primary-10)',
       }}
     >

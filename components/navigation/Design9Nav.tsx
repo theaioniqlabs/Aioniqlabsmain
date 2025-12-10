@@ -68,7 +68,7 @@ export const Design9Nav: React.FC<Design9NavProps> = ({
                 alt={logoAlt}
                 width={135}
                 height={38}
-                className="h-[30px] w-auto"
+                style={{ height: 'var(--nav-logo-height-mobile)', width: 'auto' }}
                 priority
               />
             </Link>
@@ -115,9 +115,13 @@ export const Design9Nav: React.FC<Design9NavProps> = ({
               <Link
                 key={item.label}
                 href={item.href}
-                className={`flex flex-col items-center justify-center gap-1 min-w-[44px] min-h-[44px] px-2 rounded-lg transition-all ${
+                className={`flex flex-col items-center justify-center gap-1 px-2 rounded-lg transition-all ${
                   isActive ? 'text-primary' : 'text-foreground/40'
                 }`}
+                style={{
+                  minWidth: 'var(--nav-item-min-size)',
+                  minHeight: 'var(--nav-item-min-size)',
+                }}
                 aria-current={isActive ? 'page' : undefined}
               >
                 <IconComponent

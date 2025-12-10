@@ -29,9 +29,12 @@ const DestinationCard = React.forwardRef<HTMLDivElement, DestinationCardProps>(
         <div
           className="relative block w-full h-full rounded-2xl overflow-hidden shadow-lg 
                      transition-all duration-500 ease-in-out 
-                     group-hover:scale-105 group-hover:shadow-[0_0_60px_-15px_hsl(var(--theme-color)/0.6)]"
+                     group-hover:scale-105"
+                     style={{
+                       '--hover-shadow': 'var(--shadow-card-theme-hover)',
+                     } as React.CSSProperties}
           style={{
-            boxShadow: `0 0 40px -15px hsl(var(--theme-color) / 0.5)`
+            boxShadow: 'var(--shadow-card-theme)'
           }}
         >
           {/* Background Image with Parallax Zoom */}

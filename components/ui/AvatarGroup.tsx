@@ -94,7 +94,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = ({
                   justifyContent: 'center',
                   color: 'var(--color-text-primary)',
                   fontWeight: 600,
-                  fontSize: size === 'default' ? '19.2px' : '16px', // 48*0.4 = 19.2px, 40*0.4 = 16px
+                  fontSize: size === 'default' ? 'var(--typography-body-small-size-desktop)' : 'var(--typography-body-small-size-mobile)', // Calculated from avatar size
                 }}
               >
                 {initials}

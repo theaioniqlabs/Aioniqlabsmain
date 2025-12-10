@@ -56,9 +56,9 @@ export function MissionVisionSection() {
           <h3
             className="mb-4"
             style={{
-              fontSize: '24px',
-              fontWeight: '600',
-              lineHeight: '1.3',
+              fontSize: 'var(--typography-h3-size-desktop)',
+              fontWeight: 'var(--typography-h3-weight)',
+              lineHeight: 'var(--typography-h3-line-height-desktop)',
               color: 'var(--color-text-primary)',
             }}
           >
@@ -67,8 +67,8 @@ export function MissionVisionSection() {
           <p
             className="leading-relaxed"
             style={{
-              fontSize: '16px',
-              lineHeight: '1.75',
+              fontSize: 'var(--typography-body-default-size-desktop)',
+              lineHeight: 'var(--typography-body-default-line-height)',
               color: 'var(--color-text-primary)',
             }}
           >

@@ -19,16 +19,16 @@ export function StartupProgramSection() {
         <div
           className="absolute top-0 right-0 rounded-full blur-3xl pointer-events-none"
           style={{
-            width: '192px',
-            height: '192px',
+            width: 'var(--spacing-image-height-medium)',
+            height: 'var(--spacing-image-height-medium)',
             backgroundColor: 'var(--color-brand-primary-10)',
           }}
         />
         <div
           className="absolute bottom-0 left-0 rounded-full blur-3xl pointer-events-none"
           style={{
-            width: '256px',
-            height: '256px',
+            width: 'var(--spacing-blur-effect-large)',
+            height: 'var(--spacing-blur-effect-large)',
             backgroundColor: 'var(--color-background-tertiary-10)',
           }}
         />
@@ -112,8 +112,8 @@ export function StartupProgramSection() {
           className="text-sm"
           style={{
             color: 'var(--color-text-secondary)',
-            fontSize: '14px',
-            lineHeight: '1.5',
+            fontSize: 'var(--typography-body-small-size-desktop)',
+            lineHeight: 'var(--typography-body-small-line-height)',
           }}
         >
           Join our next cohort

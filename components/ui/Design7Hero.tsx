@@ -56,12 +56,14 @@ export const Design7Hero: React.FC<Design7HeroProps> = ({
               <div
                 className="inline-flex items-center gap-2 rounded-full mb-6"
                 style={{
-                  paddingLeft: 'var(--spacing-stack-gap-xs)', // 8px, using closest token
+                  paddingLeft: 'var(--spacing-stack-gap-xs)',
                   paddingRight: 'var(--spacing-stack-gap-xs)',
                   paddingTop: 'var(--spacing-stack-gap-xs)',
                   paddingBottom: 'var(--spacing-stack-gap-xs)',
                   backgroundColor: 'var(--color-brand-primary-05)',
-                  border: '1px solid hsl(var(--border))',
+                  borderWidth: '1px',
+                  borderStyle: 'solid',
+                  borderColor: 'hsl(var(--border))',
                 }}
               >
                 <Sparkles
@@ -76,7 +78,7 @@ export const Design7Hero: React.FC<Design7HeroProps> = ({
                   style={{
                     color: 'var(--color-brand-primary)',
                     fontSize: 'var(--typography-body-small-size-desktop)',
-                    lineHeight: '1.5',
+                    lineHeight: 'var(--typography-body-small-line-height)',
                   }}
                 >
                   {badge}
@@ -90,7 +92,7 @@ export const Design7Hero: React.FC<Design7HeroProps> = ({
               style={{
                 marginBottom: 'var(--spacing-stack-gap-md)',
                 fontSize: 'clamp(2.25rem, 4vw, 3.75rem)',
-                lineHeight: '1.1',
+                lineHeight: 'var(--typography-display-tight-alt-line-height)',
                 fontWeight: 'var(--typography-h1-weight)',
                 color: 'var(--color-text-primary)',
                 textAlign: 'left',
@@ -127,7 +129,7 @@ export const Design7Hero: React.FC<Design7HeroProps> = ({
               style={{
                 color: 'var(--color-text-secondary)',
                 fontSize: 'var(--typography-body-default-size-desktop)',
-                lineHeight: '1.6',
+                lineHeight: 'var(--typography-body-default-line-height)',
               }}
             >
               {description}
@@ -155,7 +157,7 @@ export const Design7Hero: React.FC<Design7HeroProps> = ({
                     className="text-sm"
                     style={{
                       fontSize: 'var(--typography-body-small-size-desktop)',
-                      lineHeight: '1.5',
+                      lineHeight: 'var(--typography-body-small-line-height)',
                       color: 'var(--color-text-primary)',
                     }}
                   >
@@ -176,8 +178,8 @@ export const Design7Hero: React.FC<Design7HeroProps> = ({
               <div
                 className="absolute top-0 right-0 rounded-full pointer-events-none"
                 style={{
-                  width: '128px',
-                  height: '128px',
+                  width: 'var(--spacing-blur-effect-small)',
+                  height: 'var(--spacing-blur-effect-small)',
                   backgroundColor: 'var(--color-text-inverse-10)',
                   filter: 'blur(64px)',
                 }}
@@ -185,8 +187,8 @@ export const Design7Hero: React.FC<Design7HeroProps> = ({
               <div
                 className="absolute bottom-0 left-0 rounded-full pointer-events-none"
                 style={{
-                  width: '160px',
-                  height: '160px',
+                  width: 'var(--spacing-blur-effect-medium)',
+                  height: 'var(--spacing-blur-effect-medium)',
                   backgroundColor: 'var(--color-text-inverse-10)',
                   filter: 'blur(96px)',
                 }}
@@ -198,7 +200,7 @@ export const Design7Hero: React.FC<Design7HeroProps> = ({
                   className="text-white/80 text-sm mb-2"
                   style={{
                     fontSize: 'var(--typography-body-small-size-desktop)',
-                    lineHeight: '1.5',
+                    lineHeight: 'var(--typography-body-small-line-height)',
                     color: 'var(--color-text-inverse-80)',
                   }}
                 >
@@ -209,8 +211,8 @@ export const Design7Hero: React.FC<Design7HeroProps> = ({
                     className="text-white"
                     style={{
                       fontSize: 'clamp(3rem, 5vw, 3.75rem)',
-                      lineHeight: '1',
-                      fontWeight: '700',
+                      lineHeight: 'var(--typography-display-tight-line-height)',
+                      fontWeight: 'var(--typography-headline-weight)',
                     }}
                   >
                     {metricValue}
@@ -219,7 +221,7 @@ export const Design7Hero: React.FC<Design7HeroProps> = ({
                     className="text-white/80"
                     style={{
                       fontSize: 'clamp(1.25rem, 2vw, 1.5rem)',
-                      lineHeight: '1',
+                      lineHeight: 'var(--typography-display-tight-line-height)',
                       color: 'var(--color-text-inverse-80)',
                     }}
                   >
@@ -230,7 +232,7 @@ export const Design7Hero: React.FC<Design7HeroProps> = ({
                   className="text-white/90 text-sm"
                   style={{
                     fontSize: 'var(--typography-body-small-size-desktop)',
-                    lineHeight: '1.5',
+                    lineHeight: 'var(--typography-body-small-line-height)',
                     color: 'var(--color-text-inverse-90)',
                   }}
                 >

@@ -1,8 +1,7 @@
 import type { Metadata } from 'next'
 import '@/styles/globals.css'
-import { Design9Nav } from '@/components/navigation/Design9Nav'
+import { Header } from '@/components/ui/header-3'
 import { ThemeProvider } from '@/components/providers/ThemeProvider'
-import { TextBanner } from '@/components/ui/TextBanner'
 import { Footer } from '@/components/ui/footer-section'
 
 export const metadata: Metadata = {
@@ -29,10 +28,7 @@ export default function RootLayout({
       </head>
       <body>
         <ThemeProvider>
-          <section className="relative w-full">
-            <TextBanner />
-            <Design9Nav />
-          </section>
+          <Header />
           <div className="pt-16 lg:pt-16 pb-16 lg:pb-0">
             {children}
           </div>

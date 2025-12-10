@@ -48,7 +48,10 @@ export const TextBanner: React.FC<TextBannerProps> = ({
           alt={logoAlt}
           width={135}
           height={38}
-          className="h-[24px] sm:h-[30px] w-auto"
+          className="w-auto"
+          style={{
+            height: 'var(--icon-size-default)',
+          }}
           priority
         />
       </div>

@@ -67,13 +67,20 @@ docs/archive/figma-web/Inspects.md
 
 # Planning and temporary documentation
 PLAN_*.md
-PROJECT_HEALTH_REPORT.md
+PROJECT_HEALTH_REPORT*.md
 CLEANUP_REVIEW.md
 CURSOR_FILE_NOT_FOUND_FIX.md
 EXECUTE_CLEANUP_20251209.md
 UNUSED_FILES_ANALYSIS.md
 UPDATED_MASTER_PROJECT_MANUAL.md
 UPDATED_WORKFLOW.md
+*_SUMMARY.md
+*_ANALYSIS.md
+*_REPORT*.md
+*_GUIDE.md
+*_STATUS*.md
+docs/CODE_COMPARISON.md
+docs/HEADER_CONVERSION_SNIPPETS.md
 
 # Documentation/instructions folder
 /A/

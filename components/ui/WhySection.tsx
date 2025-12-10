@@ -86,7 +86,7 @@ export const WhySection: React.FC = () => {
         <div
           className="mb-16 md:mb-20 p-8 md:p-12 lg:p-16 bg-gradient-to-br from-primary to-primary/80 text-primary-foreground rounded-2xl md:rounded-3xl"
           style={{
-            boxShadow: '0 4px 6px -1px var(--color-text-primary-10), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+            boxShadow: 'var(--shadow-card-default)',
           }}
         >
           <div className="max-w-3xl">
@@ -103,7 +103,7 @@ export const WhySection: React.FC = () => {
               className="mb-6 md:mb-8 font-heading tracking-tight"
               style={{
                 fontSize: 'clamp(1.875rem, 4vw, 2.75rem)',
-                lineHeight: '1.15',
+                lineHeight: 'var(--typography-h2-line-height-desktop)',
                 fontWeight: 'var(--typography-h2-weight)',
               }}
             >
@@ -226,7 +226,7 @@ export const WhySection: React.FC = () => {
                 <div
                   className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0 mt-0.5"
                   style={{
-                    boxShadow: '0 2px 4px var(--color-text-primary-10)',
+                    boxShadow: 'var(--shadow-card-icon)',
                   }}
                 >
                   <span
@@ -281,7 +281,7 @@ export const WhySection: React.FC = () => {
               <div
                 className="w-12 md:w-16 h-0.5 md:h-1 bg-primary mb-6 md:mb-8"
                 style={{
-                  borderRadius: '2px',
+                  borderRadius: 'var(--radii-sm)',
                 }}
               />
               <h3
@@ -314,7 +314,7 @@ export const WhySection: React.FC = () => {
           className="mt-16 md:mt-20 lg:mt-24 p-8 md:p-12 bg-primary/5 rounded-xl md:rounded-2xl text-center border border-primary/10"
           style={{
             padding: 'var(--card-padding)',
-            boxShadow: '0 1px 3px rgba(0, 0, 0, 0.05)', // Very subtle shadow (0.05 opacity - edge case, keeping as-is)
+            boxShadow: 'var(--shadow-card-subtle)',
           }}
         >
           <h3

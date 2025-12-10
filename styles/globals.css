@@ -7,6 +7,7 @@
   --spacing-container-max-width-xl: 1280px;
   --spacing-container-max-width-lg: 1024px;
   --spacing-container-max-width-md: 768px;
+  --spacing-container-min-height-footer: 300px;
   --spacing-container-padding-desktop: 80px;
   --spacing-container-padding-tablet: 40px;
   --spacing-container-padding-mobile: 24px;
@@ -29,6 +30,8 @@
   --nav-padding-x-mobile: 24px;
   --nav-padding-x-desktop: 80px;
   --nav-logo-height: 40px;
+  --nav-logo-height-mobile: 30px;
+  --nav-item-min-size: 44px;
   --nav-overlay-padding-top: 120px;
   --nav-header-gap: auto;
 
@@ -41,6 +44,13 @@
   --spacing-banner-height-mobile: 150px;
   --spacing-banner-gap-top: 32px;
   --spacing-banner-gap-bottom: 48px;
+
+  /* Spacing - Base Values */
+  --spacing-4: 4px;
+  --spacing-5: 5px;
+  --spacing-8: 8px;
+  --spacing-10: 10px;
+  --spacing-12: 12px;
 
   /* Spacing - Stack */
   --spacing-stack-gap-xs: 8px;
@@ -75,6 +85,33 @@
   --spacing-badge-height: 32px;
   --spacing-badge-padding-x: 16px;
   --spacing-badge-padding-y: 8px;
+
+  /* Spacing - Image Heights */
+  --spacing-image-height-small: 128px;
+  --spacing-image-height-medium: 192px;
+  --spacing-image-height-large: 256px;
+  --spacing-image-height-xlarge: 320px;
+  --spacing-image-height-hero: 280px;
+  --spacing-image-height-hero-md: 400px;
+  --spacing-image-height-gallery: 220px;
+  --spacing-image-height-gallery-md: 280px;
+  --spacing-image-height-card: 200px;
+  --spacing-image-height-card-lg: 240px;
+  --spacing-image-height-team: 500px;
+  --spacing-image-width-tooltip-small: 180px;
+  --spacing-image-width-tooltip-default: 200px;
+
+  /* Spacing - Image Widths */
+  --spacing-image-width-small: 128px;
+  --spacing-image-width-medium: 192px;
+  --spacing-image-width-large: 256px;
+  --spacing-image-width-xlarge: 320px;
+
+  /* Spacing - Blur Effects */
+  --spacing-blur-effect-small: 128px;
+  --spacing-blur-effect-medium: 160px;
+  --spacing-blur-effect-large: 256px;
+  --spacing-blur-effect-xlarge: 320px;
 
   /* Typography - Headline */
   --typography-headline-size-desktop: 64px;
@@ -186,6 +223,15 @@
   --typography-overline-size: 10px;
   --typography-overline-line-height: 14px;
   --typography-overline-weight: 600;
+
+  /* Typography - Caption Extra Small */
+  --typography-caption-extra-small-size: 10px;
+  --typography-caption-extra-small-line-height: 14px;
+  --typography-caption-extra-small-weight: 400;
+
+  /* Typography - Display (for large numbers/text) */
+  --typography-display-tight-line-height: 1;
+  --typography-display-tight-alt-line-height: 1.1;
 
   /* Typography - Subtle Scale (for Hero, content sections) */
   --typography-h1-subtle-size-desktop: 28px;
@@ -307,9 +353,17 @@
   --radii-card-nav: 16px;
   --radii-avatar-circle: 50%;
   --radii-banner-default: 16px;
+  --radii-focus-ring: 3px;
 
   /* Shadows */
   --shadow-banner: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-card-default: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-card-subtle: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-card-hover: 0 0 40px -15px rgba(0, 0, 0, 0.3);
+  --shadow-card-theme: 0 0 40px -15px rgba(0, 0, 0, 0.5);
+  --shadow-card-theme-hover: 0 0 60px -15px rgba(0, 0, 0, 0.6);
+  --shadow-card-icon: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-focus-ring: 0 0 0 3px rgba(0, 0, 0, 0.1);
 
   /* shadcn/ui color tokens (mapped to AiONIQ tokens) */
   /* HSL format required by shadcn/ui */

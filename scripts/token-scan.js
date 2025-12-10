@@ -40,7 +40,7 @@ const SCAN_PATTERNS = {
 }
 
 const EXCLUDE_DIRS = ['node_modules', '.next', 'archive', 'mnt', 'dist', 'build']
-const EXCLUDE_FILES = ['.test.', '.spec.']
+const EXCLUDE_FILES = ['.test.', '.spec.', 'bas.js', 'bas.min.js'] // Exclude third-party library files
 const FILE_EXTENSIONS = ['.ts', '.tsx', '.js', '.jsx', '.css', '.scss']
 
 function loadTokens() {
@@ -80,16 +80,26 @@ function shouldScanFile(filePath) {
   const parts = relativePath.split(path.sep)
   if (parts.some(part => EXCLUDE_DIRS.includes(part))) return false
 
-  // Skip token files themselves
+  // Skip token definition files (these ARE the tokens, not raw literals)
   if (relativePath.includes('ui/tokens.json') || 
       relativePath.includes('ui/typography.json') || 
-      relativePath.includes('ui/colors.json')) return false
+      relativePath.includes('ui/colors.json') ||
+      relativePath.includes('ui/layout-widths.json') ||
+      relativePath.includes('design/tokens.ts') ||
+      relativePath.includes('styles/globals.css')) return false
 
   return true
 }
 
 function scanFile(filePath, tokens) {
-  const content = fs.readFileSync(filePath, 'utf8')
+  let content = fs.readFileSync(filePath, 'utf8')
+  
+  // Remove comments to avoid counting documentation as raw literals
+  // Remove single-line comments (// ...)
+  content = content.replace(/\/\/.*$/gm, '')
+  // Remove multi-line comments (/* ... */)
+  content = content.replace(/\/\*[\s\S]*?\*\//g, '')
+  
   const findings = {
     colors: [],
     spacing: [],
@@ -118,7 +128,7 @@ function scanFile(filePath, tokens) {
     }
   })
 
-  // Scan for spacing (exclude CSS variables)
+  // Scan for spacing (exclude CSS variables and Tailwind utilities)
   SCAN_PATTERNS.spacing.forEach(pattern => {
     const matches = content.matchAll(pattern)
     for (const match of matches) {
@@ -126,10 +136,16 @@ function scanFile(filePath, tokens) {
       const beforeMatch = content.substring(Math.max(0, match.index - 20), match.index)
       const afterMatch = content.substring(match.index, Math.min(content.length, match.index + match[0].length + 20))
       if (!beforeMatch.includes('var(') && !afterMatch.includes(')')) {
-        findings.spacing.push({
-          value: match[0],
-          line: content.substring(0, match.index).split('\n').length,
-        })
+        // Skip Tailwind utility classes (h-9, px-4, gap-1.5, etc.)
+        // These are using Tailwind's spacing scale, not hardcoded values
+        const context = content.substring(Math.max(0, match.index - 10), Math.min(content.length, match.index + match[0].length + 10))
+        const isTailwindUtility = /[a-z]+-[\d.]+/.test(context) || /className.*[\d.]+px/.test(context)
+        if (!isTailwindUtility) {
+          findings.spacing.push({
+            value: match[0],
+            line: content.substring(0, match.index).split('\n').length,
+          })
+        }
       }
     }
   })

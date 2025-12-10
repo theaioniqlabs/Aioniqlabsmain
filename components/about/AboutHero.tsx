@@ -15,16 +15,16 @@ export function AboutHero() {
       <div
         className="absolute top-0 right-0 rounded-full blur-3xl pointer-events-none"
         style={{
-          width: '256px',
-          height: '256px',
+          width: 'var(--spacing-blur-effect-large)',
+          height: 'var(--spacing-blur-effect-large)',
           backgroundColor: 'var(--color-brand-primary-05)',
         }}
       />
       <div
         className="absolute bottom-0 left-0 rounded-full blur-3xl pointer-events-none"
         style={{
-          width: '320px',
-          height: '320px',
+          width: 'var(--spacing-blur-effect-xlarge)',
+          height: 'var(--spacing-blur-effect-xlarge)',
           backgroundColor: 'var(--color-background-tertiary-10)',
         }}
       />
@@ -35,7 +35,7 @@ export function AboutHero() {
           style={{
             fontSize: 'clamp(var(--typography-h2-subtle-size-mobile), 5vw, var(--typography-h2-subtle-size-desktop))', // 30px-48px responsive
             lineHeight: 'var(--typography-h2-subtle-line-height-desktop)', // 1.2 equivalent
-            fontWeight: '700',
+            fontWeight: 'var(--typography-headline-weight)',
             color: 'var(--color-text-primary)',
           }}
         >

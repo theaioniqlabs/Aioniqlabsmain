@@ -47,7 +47,51 @@ const config: Config = {
         },
       },
       spacing: {
-        // Will be extended via CSS variables from tokens
+        // Extended spacing tokens from ui/tokens.json
+        'image-hero': 'var(--spacing-image-height-hero)',
+        'image-hero-md': 'var(--spacing-image-height-hero-md)',
+        'image-gallery': 'var(--spacing-image-height-gallery)',
+        'image-gallery-md': 'var(--spacing-image-height-gallery-md)',
+        'image-card': 'var(--spacing-image-height-card)',
+        'image-card-lg': 'var(--spacing-image-height-card-lg)',
+        'image-team': 'var(--spacing-image-height-team)',
+        'blur-small': 'var(--spacing-blur-effect-small)',
+        'blur-medium': 'var(--spacing-blur-effect-medium)',
+        'blur-large': 'var(--spacing-blur-effect-large)',
+        'blur-xlarge': 'var(--spacing-blur-effect-xlarge)',
+        // Base spacing tokens
+        'token-4': 'var(--spacing-4)',
+        'token-5': 'var(--spacing-5)',
+        'token-8': 'var(--spacing-8)',
+        'token-10': 'var(--spacing-10)',
+        'token-12': 'var(--spacing-12)',
+        // Stack gaps
+        'stack-xs': 'var(--spacing-stack-gap-xs)',
+        'stack-sm': 'var(--spacing-stack-gap-sm)',
+        'stack-md': 'var(--spacing-stack-gap-md)',
+        'stack-lg': 'var(--spacing-stack-gap-lg)',
+        'stack-xl': 'var(--spacing-stack-gap-xl)',
+        'stack-2xl': 'var(--spacing-stack-gap-2xl)',
+        // Tooltip widths
+        'tooltip-sm': 'var(--spacing-image-width-tooltip-small)',
+        'tooltip': 'var(--spacing-image-width-tooltip-default)',
+      },
+      height: {
+        'hero-default': 'var(--spacing-image-height-hero)',
+        'hero-md': 'var(--spacing-image-height-hero-md)',
+        'gallery-default': 'var(--spacing-image-height-gallery)',
+        'gallery-md': 'var(--spacing-image-height-gallery-md)',
+        'card-default': 'var(--spacing-image-height-card)',
+        'card-md': 'var(--spacing-image-height-card-md)',
+        'card-lg': 'var(--spacing-image-height-card-lg)',
+        'team-default': 'var(--spacing-image-height-team-default)',
+        'team-md': 'var(--spacing-image-height-team-md)',
+        'team-lg': 'var(--spacing-image-height-team-lg)',
+        'team-xl': 'var(--spacing-image-height-team-xl)',
+      },
+      maxWidth: {
+        'tooltip-sm': 'var(--spacing-image-width-tooltip-small)',
+        'tooltip': 'var(--spacing-image-width-tooltip-default)',
       },
       fontSize: {
         // Will be extended via CSS variables from tokens

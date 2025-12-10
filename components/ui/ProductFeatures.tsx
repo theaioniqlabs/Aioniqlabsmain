@@ -128,7 +128,7 @@ export const ProductFeatures: React.FC<ProductFeaturesProps> = ({
                   className="mb-4 font-heading"
                   style={{
                     fontSize: 'clamp(3rem, 8vw, 8rem)',
-                    lineHeight: '1',
+                    lineHeight: 'var(--typography-display-tight-line-height)',
                     fontWeight: 'var(--typography-h1-weight)',
                     color: 'var(--color-text-primary)',
                   }}
@@ -183,7 +183,7 @@ export const ProductFeatures: React.FC<ProductFeaturesProps> = ({
                   className="font-heading"
                   style={{
                     fontSize: 'clamp(2rem, 5vw, 4rem)',
-                    lineHeight: '1',
+                    lineHeight: 'var(--typography-display-tight-line-height)',
                     fontWeight: 'var(--typography-h1-weight)',
                     color: 'var(--color-text-primary)',
                   }}

@@ -24,7 +24,7 @@ export function StatsGrid() {
             className="mb-2"
             style={{
               fontSize: 'var(--typography-headline-size-mobile)', // 40px on mobile, 48px would be custom
-              lineHeight: '1.2',
+              lineHeight: 'var(--typography-headline-line-height-mobile)',
               fontWeight: 'var(--typography-headline-weight)',
               color: 'var(--color-text-primary)',
             }}

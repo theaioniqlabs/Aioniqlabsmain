@@ -19,9 +19,9 @@ export const TeamGrid: React.FC = () => {
       }}
     >
       <PageContainer mode="visual">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4" style={{ gap: 'var(--spacing-5)' }}>
           {/* Card 1: Hero Card - "Teams Together" (2x2 on desktop) */}
-          <div className="lg:row-span-2 lg:col-span-2 bg-black text-white rounded-3xl p-10 md:p-12 flex flex-col justify-between min-h-[500px]">
+          <div className="lg:row-span-2 lg:col-span-2 bg-black text-white p-10 md:p-12 flex flex-col justify-between" style={{ minHeight: 'var(--spacing-image-height-team)', borderRadius: 'var(--radii-card-default)' }}>
             <div>
               <p className="text-sm opacity-80 mb-6">Teams Together</p>
               <h2 className="text-4xl md:text-5xl mb-6 leading-tight">
@@ -34,7 +34,7 @@ export const TeamGrid: React.FC = () => {
           </div>
 
           {/* Card 2: Sliding Banners */}
-          <div className="lg:col-span-2 rounded-3xl min-h-[240px] relative overflow-hidden" style={{ backgroundColor: 'var(--color-gray-lighter)' }}>
+          <div className="lg:col-span-2 relative overflow-hidden" style={{ backgroundColor: 'var(--color-gray-lighter)', minHeight: 'var(--spacing-image-height-card-lg)', borderRadius: 'var(--radii-card-default)' }}>
             <Banner
               images={[
                 '/assets/banners/banner-ceramix.png',
@@ -48,12 +48,12 @@ export const TeamGrid: React.FC = () => {
           </div>
 
           {/* Cards 3 & 4: Wrapped in flex container for width adjustment */}
-          <div className="lg:col-span-2 flex flex-col lg:flex-row gap-4">
+          <div className="lg:col-span-2 flex flex-col lg:flex-row" style={{ gap: 'var(--spacing-5)' }}>
             {/* Card 3: Black Card */}
-            <div className="lg:flex-1 bg-black text-white rounded-3xl min-h-[280px] group hover:opacity-90 transition-all duration-300"></div>
+            <div className="lg:flex-1 bg-black text-white group hover:opacity-90 transition-all duration-300" style={{ minHeight: 'var(--spacing-image-height-hero)', borderRadius: 'var(--radii-card-default)' }}></div>
 
             {/* Card 4: Team Profile Card - Sarah Mitchell */}
-            <div className="lg:flex-1 bg-black text-white rounded-3xl p-8 flex flex-col justify-between min-h-[280px] group hover:opacity-90 transition-all duration-300 cursor-pointer">
+            <div className="lg:flex-1 bg-black text-white p-8 flex flex-col justify-between group hover:opacity-90 transition-all duration-300 cursor-pointer" style={{ minHeight: 'var(--spacing-image-height-hero)', borderRadius: 'var(--radii-card-default)' }}>
               <div>
                 <p className="text-sm opacity-70 mb-6">
                   Our <span className="text-orange-400">Team</span>
@@ -71,7 +71,7 @@ export const TeamGrid: React.FC = () => {
           </div>
 
           {/* Card 6: AIONIQ Services Card - Design 11 */}
-          <div className="lg:col-span-2 rounded-3xl p-6 flex flex-col justify-between min-h-[240px] group hover:opacity-90 transition-all duration-300" style={{ backgroundColor: 'var(--color-gray-lightest)' }}>
+          <div className="lg:col-span-2 p-6 flex flex-col justify-between group hover:opacity-90 transition-all duration-300" style={{ backgroundColor: 'var(--color-gray-lightest)', minHeight: 'var(--spacing-image-height-card-lg)', borderRadius: 'var(--radii-card-default)' }}>
             <div>
               <h4 className="mb-4 text-black" style={{ fontSize: 'var(--typography-h4-size-desktop)', fontWeight: 'var(--typography-h4-weight)' }}>
                 AIONIQ Services
@@ -99,16 +99,16 @@ export const TeamGrid: React.FC = () => {
           </div>
 
           {/* Card 7: Visiting Card - Design 14.1 */}
-          <div className="lg:col-span-2 relative bg-background rounded-2xl overflow-hidden shadow-2xl hover:shadow-3xl transition-shadow duration-300 min-h-[280px] md:min-h-[320px]">
-            <div className="grid grid-cols-1 md:grid-cols-[2fr,3fr] h-full min-h-[280px] md:min-h-[320px]">
+          <div className="lg:col-span-2 relative bg-background overflow-hidden shadow-2xl hover:shadow-3xl transition-shadow duration-300" style={{ minHeight: 'var(--spacing-image-height-hero)', borderRadius: 'var(--radii-card-default)' }}>
+            <div className="grid grid-cols-1 md:grid-cols-[2fr,3fr] h-full" style={{ minHeight: 'var(--spacing-image-height-hero)' }}>
               {/* Left Column - Dark Gradient */}
-              <div className="relative bg-gradient-to-br from-slate-800 to-slate-900 dark:from-slate-900 dark:to-black p-6 sm:p-8 md:p-10 flex flex-col items-center justify-center overflow-hidden min-h-[200px] md:min-h-auto">
+              <div className="relative bg-gradient-to-br from-slate-800 to-slate-900 dark:from-slate-900 dark:to-black p-6 sm:p-8 md:p-10 flex flex-col items-center justify-center overflow-hidden" style={{ minHeight: 'var(--spacing-image-height-card)' }}>
                 {/* Diagonal Stripe Pattern Overlay */}
                 <div
                   className="absolute inset-0 opacity-20"
                   style={{
                     backgroundImage:
-                      `repeating-linear-gradient(45deg, transparent, transparent 10px, var(--color-text-primary-30) 10px, var(--color-text-primary-30) 20px)`,
+                      `repeating-linear-gradient(45deg, transparent, transparent var(--gradient-pattern-spacing), var(--color-text-primary-30) var(--gradient-pattern-spacing), var(--color-text-primary-30) var(--gradient-pattern-spacing-double))`,
                   }}
                 ></div>
 
@@ -127,7 +127,7 @@ export const TeamGrid: React.FC = () => {
               </div>
 
               {/* Right Column - Light Card */}
-              <div className="relative bg-card p-6 sm:p-8 md:p-10 flex flex-col justify-center min-h-[280px] md:min-h-auto">
+              <div className="relative bg-card p-6 sm:p-8 md:p-10 flex flex-col justify-center" style={{ minHeight: 'var(--spacing-image-height-hero)' }}>
                 {/* Red Vertical Gradient Bar */}
                 <div className="absolute top-0 right-0 w-1.5 sm:w-2 md:w-3 h-full bg-gradient-to-b from-red-600 to-red-700"></div>
 

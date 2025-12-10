@@ -1,0 +1,339 @@
+aioniq_cursor_package/
+│
+├── A/
+│   ├── .cursorrules
+│   ├── cursor_prompt_template.txt
+│   ├── README_INSTRUCTIONS.txt
+│   ├── UPDATED_MASTER_PROJECT_MANUAL.md
+│   └── UPDATED_WORKFLOW.md
+│
+├── app/
+│   ├── (demo)/
+│   │   └── progressive-blur-demo/
+│   ├── how/
+│   │   └── page.tsx
+│   ├── layout.tsx
+│   ├── page.tsx
+│   ├── what/
+│   │   ├── [slug]/
+│   │   │   └── page.tsx
+│   │   ├── page.tsx
+│   │   └── projects.ts
+│   ├── where/
+│   │   └── page.tsx
+│   ├── who/
+│   │   └── page.tsx
+│   └── why/
+│       └── page.tsx
+│
+├── archive/
+│   ├── cleanup-20250127/
+│   └── cleanup-20251209/
+│       ├── 9309a2b0-3a7c-4372-8cbc-3030a29cc646.png
+│       ├── app/
+│       │   └── (demo)/
+│       │       └── progressive-blur-demo/
+│       ├── assets/
+│       │   ├── c__Users_bhupe_AppData_Roaming_Cursor_User_workspaceStorage_9a69a82da79b556d49469f3c83408996_images_image-b4b72423-338d-4afe-a389-8215a1cb0c8f.png
+│       │   └── c__Users_bhupe_AppData_Roaming_Cursor_User_workspaceStorage_9a69a82da79b556d49469f3c83408996_images_Untitled-1-99e32ac8-c011-4e6e-8cba-b7af195a1743.png
+│       ├── components/
+│       │   ├── CardStack/
+│       │   ├── demo/
+│       │   │   └── DialogExample.tsx
+│       │   ├── explore-grid/
+│       │   ├── trusted-band/
+│       │   └── ui/
+│       │       ├── aurora-background.tsx
+│       │       ├── ImagePlaceholder.tsx
+│       │       ├── popover.tsx
+│       │       └── tilt/
+│       └── public/
+│           └── assets/
+│               ├── backgrounds/
+│               └── trusted/
+│
+├── assets/
+│
+├── components/
+│   ├── about/
+│   │   ├── AboutBento.tsx
+│   │   ├── AboutCTA.tsx
+│   │   ├── AboutHero.tsx
+│   │   ├── AboutSection.tsx
+│   │   ├── FounderCard.tsx
+│   │   ├── FounderSection.tsx
+│   │   ├── HowWeWorkSection.tsx
+│   │   ├── MissionCard.tsx
+│   │   ├── MissionVisionSection.tsx
+│   │   ├── StartupProgramCard.tsx
+│   │   ├── StartupProgramSection.tsx
+│   │   ├── StatCard.tsx
+│   │   ├── StatsGrid.tsx
+│   │   └── VisionCard.tsx
+│   ├── CardStack/
+│   ├── demo/
+│   ├── explore-grid/
+│   ├── hero/
+│   │   └── Hero.tsx
+│   ├── navigation/
+│   │   ├── Design5Nav.tsx
+│   │   ├── Design9Nav.tsx
+│   │   ├── GlowNav.tsx
+│   │   ├── MainNav.tsx
+│   │   └── Navigation.tsx
+│   ├── providers/
+│   │   └── ThemeProvider.tsx
+│   ├── trusted-band/
+│   └── ui/
+│       ├── __tests__/
+│       │   └── Button.test.tsx
+│       ├── accordion.tsx
+│       ├── AvatarGroup.tsx
+│       ├── background-gradient-animation.tsx
+│       ├── badge.tsx
+│       ├── Banner.tsx
+│       ├── blog-post-card.tsx
+│       ├── Button.tsx
+│       ├── card-21.tsx
+│       ├── card.tsx
+│       ├── CardNav/
+│       │   ├── CardItem.tsx
+│       │   └── CardNav.tsx
+│       ├── CreditCard.tsx
+│       ├── Design4Hero.tsx
+│       ├── Design7Hero.tsx
+│       ├── dialog.tsx
+│       ├── DomeGallery.tsx
+│       ├── ethereal-shadow.tsx
+│       ├── EtherealShadowSection.tsx
+│       ├── ExploreSection.tsx
+│       ├── footer-section.tsx
+│       ├── glow-menu.tsx
+│       ├── GradientText.tsx
+│       ├── HeroSection.tsx
+│       ├── Icon.tsx
+│       ├── image-swiper.tsx
+│       ├── interactive-image-accordion.tsx
+│       ├── MagicBento.tsx
+│       ├── onboarding-checklist.tsx
+│       ├── OrbitingCircle.tsx
+│       ├── OrbitingCirclesContainer.tsx
+│       ├── PageContainer.tsx
+│       ├── ProductFeatures.tsx
+│       ├── QuoteSection.tsx
+│       ├── README.md
+│       ├── Silk.tsx
+│       ├── tabs.tsx
+│       ├── TeamGrid.tsx
+│       ├── TextBanner.tsx
+│       ├── tilt/
+│       ├── Tilt.tsx
+│       ├── typewriter-testimonial.tsx
+│       ├── video-player.tsx
+│       ├── VisitingCard.tsx
+│       └── WhySection.tsx
+│
+├── design/
+│   ├── layout-widths.ts
+│   ├── README-TYPOGRAPHY.md
+│   └── tokens.ts
+│
+├── docs/
+│   ├── archive/
+│   │   └── figma-web/
+│   │       ├── @Google_sans_flex_fonts.md
+│   │       ├── AIONIQ Labs Web App Layout – Figma Make.pdf
+│   │       ├── Button.md
+│   │       ├── Code Download/
+│   │       │   ├── Attributions.md
+│   │       │   ├── components/
+│   │       │   │   ├── layout/
+│   │       │   │   │   └── PageContainer.tsx
+│   │       │   │   ├── navigation/
+│   │       │   │   │   ├── DesktopNav.tsx
+│   │       │   │   │   └── MobileBottomNav.tsx
+│   │       │   │   ├── pages/
+│   │       │   │   │   ├── ClientPortal.tsx
+│   │       │   │   │   ├── Home.tsx
+│   │       │   │   │   ├── How.tsx
+│   │       │   │   │   ├── What.tsx
+│   │       │   │   │   ├── Where.tsx
+│   │       │   │   │   ├── Who.tsx
+│   │       │   │   │   └── Why.tsx
+│   │       │   │   ├── shared/
+│   │       │   │   │   ├── FeatureCard.tsx
+│   │       │   │   │   ├── ProcessStep.tsx
+│   │       │   │   │   ├── ProjectCard.tsx
+│   │       │   │   │   ├── QuickAccessCard.tsx
+│   │       │   │   │   ├── SectionHeader.tsx
+│   │       │   │   │   ├── StatCard.tsx
+│   │       │   │   │   └── ThemeSwitcher.tsx
+│   │       │   │   └── ui/
+│   │       │   │       ├── accordion.tsx
+│   │       │   │       ├── alert-dialog.tsx
+│   │       │   │       ├── alert.tsx
+│   │       │   │       ├── aspect-ratio.tsx
+│   │       │   │       ├── avatar.tsx
+│   │       │   │       ├── badge.tsx
+│   │       │   │       ├── breadcrumb.tsx
+│   │       │   │       ├── button.tsx
+│   │       │   │       ├── calendar.tsx
+│   │       │   │       ├── card.tsx
+│   │       │   │       ├── carousel.tsx
+│   │       │   │       ├── chart.tsx
+│   │       │   │       ├── checkbox.tsx
+│   │       │   │       ├── collapsible.tsx
+│   │       │   │       ├── command.tsx
+│   │       │   │       ├── context-menu.tsx
+│   │       │   │       ├── dialog.tsx
+│   │       │   │       ├── drawer.tsx
+│   │       │   │       ├── dropdown-menu.tsx
+│   │       │   │       ├── form.tsx
+│   │       │   │       ├── hover-card.tsx
+│   │       │   │       ├── input-otp.tsx
+│   │       │   │       ├── input.tsx
+│   │       │   │       ├── label.tsx
+│   │       │   │       ├── menubar.tsx
+│   │       │   │       ├── navigation-menu.tsx
+│   │       │   │       ├── pagination.tsx
+│   │       │   │       ├── popover.tsx
+│   │       │   │       ├── progress.tsx
+│   │       │   │       ├── radio-group.tsx
+│   │       │   │       ├── resizable.tsx
+│   │       │   │       ├── scroll-area.tsx
+│   │       │   │       ├── select.tsx
+│   │       │   │       ├── separator.tsx
+│   │       │   │       ├── sheet.tsx
+│   │       │   │       ├── sidebar.tsx
+│   │       │   │       ├── skeleton.tsx
+│   │       │   │       ├── slider.tsx
+│   │       │   │       ├── sonner.tsx
+│   │       │   │       ├── switch.tsx
+│   │       │   │       ├── table.tsx
+│   │       │   │       ├── tabs.tsx
+│   │       │   │       ├── textarea.tsx
+│   │       │   │       ├── toggle-group.tsx
+│   │       │   │       ├── toggle.tsx
+│   │       │   │       ├── tooltip.tsx
+│   │       │   │       ├── use-mobile.ts
+│   │       │   │       └── utils.ts
+│   │       │   ├── DESIGN_SYSTEM.md
+│   │       │   ├── guidelines/
+│   │       │   │   └── Guidelines.md
+│   │       │   ├── Guidelines.md
+│   │       │   ├── README.md
+│   │       │   └── styles/
+│   │       │       └── globals.css
+│   │       ├── Elements.md
+│   │       ├── Image swiper.md
+│   │       ├── Inspects.md
+│   │       ├── QnA.md
+│   │       ├── README.md
+│   │       ├── Reference/
+│   │       │   ├── 5b38795dd6307a5e0569b12699cbe21c.jpg
+│   │       │   ├── Index image banner/
+│   │       │   │   ├── Ceramix event.png
+│   │       │   │   ├── Deep Down Metal - Black copy.png
+│   │       │   │   ├── Sikkim Election Vote.png
+│   │       │   │   └── UNESCO World Heritage Site copy.png
+│   │       │   ├── QR_Code_Example.svg
+│   │       │   └── SVG/
+│   │       │       ├── Aionic Background_1.svg
+│   │       │       └── Aionic Background_2.svg
+│   │       ├── Style.md
+│   │       ├── Testimonials.md
+│   │       ├── Text replacement.txt
+│   │       ├── UI-Design-direct-code.md
+│   │       └── Untitled-1.jpg
+│   └── BEST_FONT_SYSTEM.md
+│
+├── lib/
+│   └── utils.ts
+│
+├── mnt/
+│   └── data/
+│
+├── public/
+│   ├── assets/
+│   │   ├── aioniq-logo.svg
+│   │   ├── backgrounds/
+│   │   ├── banners/
+│   │   │   ├── banner-ceramix.png
+│   │   │   ├── banner-metal.png
+│   │   │   ├── banner-sikkim.png
+│   │   │   └── banner-unesco.png
+│   │   ├── icons/
+│   │   │   ├── arrow.svg
+│   │   │   ├── close.svg
+│   │   │   └── hamburger.svg
+│   │   ├── placeholders/
+│   │   │   ├── hero_banner_placeholder@1x.webp
+│   │   │   ├── hero_banner_placeholder@2x.webp
+│   │   │   └── README.md
+│   │   └── trusted/
+│   ├── fonts/
+│   └── lib/
+│       ├── bas.js
+│       └── bas.min.js
+│
+├── scripts/
+│   ├── cleanup-apply.js
+│   ├── cleanup-report-20251209-summary.md
+│   ├── cleanup-report-20251209.json
+│   ├── cleanup-verify.js
+│   ├── create-next-junction.js
+│   ├── generate-banner-placeholders.js
+│   ├── generate-placeholders.js
+│   └── migrate-buttons.js
+│
+├── styles/
+│   └── globals.css
+│
+├── tests/
+│   ├── about.test.tsx
+│   ├── hero-banner.test.tsx
+│   ├── hero.test.tsx
+│   ├── interactive-accordion.test.tsx
+│   ├── nav.test.tsx
+│   ├── setup.ts
+│   ├── shadcn.test.tsx
+│   └── typography.test.tsx
+│
+├── types/
+│   └── react-three-fiber.d.ts
+│
+├── ui/
+│   └── layout-widths.json
+│
+├── .cursorrules
+├── components.json
+├── CURSOR_FILE_NOT_FOUND_FIX.md
+├── cursor_prompt_template.txt
+├── CLEANUP_REVIEW.md
+├── DEPLOYMENT.md
+├── deploy-vercel.ps1
+├── deploy-with-token.ps1
+├── EXECUTE_CLEANUP_20251209.md
+├── next-env.d.ts
+├── next.config.js
+├── package-lock.json
+├── package.json
+├── PLAN_CLEANUP_20251209.md
+├── PLAN_DESIGN_SYSTEM_UNIFICATION.md
+├── PLAN_SHADCN_INTEGRATION.md
+├── PLAN_SUBTLE_TYPOGRAPHY.md
+├── PLAN_TYPOGRAPHY_UPDATE.md
+├── pnpm-lock.yaml
+├── postcss.config.js
+├── README_INSTRUCTIONS.txt
+├── README.md
+├── references_example.json
+├── tailwind.config.ts
+├── tsconfig.json
+├── tsconfig.tsbuildinfo
+├── UNUSED_FILES_ANALYSIS.md
+├── UPDATED_MASTER_PROJECT_MANUAL.md
+├── UPDATED_WORKFLOW.md
+├── vercel.json
+└── vitest.config.ts
+

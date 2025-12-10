@@ -1,0 +1,221 @@
+{
+  "fontFamily": {
+    "body": "Google Sans Flex, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif",
+    "heading": "Google Sans Flex, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif"
+  },
+  "headline": {
+    "size": {
+      "desktop": "64px",
+      "tablet": "56px",
+      "mobile": "40px"
+    },
+    "lineHeight": {
+      "desktop": "72px",
+      "tablet": "64px",
+      "mobile": "48px"
+    },
+    "weight": "700"
+  },
+  "h1": {
+    "subtle": {
+      "size": {
+        "desktop": "28px",
+        "tablet": "26px",
+        "mobile": "24px"
+      },
+      "lineHeight": {
+        "desktop": "32px",
+        "tablet": "30px",
+        "mobile": "28px"
+      },
+      "weight": "700"
+    }
+  },
+  "h2": {
+    "size": {
+      "desktop": "48px",
+      "tablet": "42px",
+      "mobile": "32px"
+    },
+    "lineHeight": {
+      "desktop": "56px",
+      "tablet": "50px",
+      "mobile": "40px"
+    },
+    "weight": "600",
+    "subtle": {
+      "size": {
+        "desktop": "24px",
+        "tablet": "22px",
+        "mobile": "20px"
+      },
+      "lineHeight": {
+        "desktop": "28px",
+        "tablet": "26px",
+        "mobile": "24px"
+      },
+      "weight": "600"
+    }
+  },
+  "h3": {
+    "size": {
+      "desktop": "36px",
+      "tablet": "32px",
+      "mobile": "28px"
+    },
+    "lineHeight": {
+      "desktop": "42px",
+      "tablet": "38px",
+      "mobile": "34px"
+    },
+    "weight": "600",
+    "subtle": {
+      "size": {
+        "desktop": "18px",
+        "tablet": "17px",
+        "mobile": "16px"
+      },
+      "lineHeight": {
+        "desktop": "24px",
+        "tablet": "22px",
+        "mobile": "20px"
+      },
+      "weight": "600"
+    }
+  },
+  "h4": {
+    "size": {
+      "desktop": "28px",
+      "tablet": "26px",
+      "mobile": "24px"
+    },
+    "lineHeight": {
+      "desktop": "36px",
+      "tablet": "34px",
+      "mobile": "32px"
+    },
+    "weight": "600"
+  },
+  "body": {
+    "large": {
+      "size": {
+        "desktop": "18px",
+        "tablet": "18px",
+        "mobile": "16px"
+      },
+      "lineHeight": {
+        "desktop": "28px",
+        "tablet": "28px",
+        "mobile": "24px"
+      },
+      "weight": "400"
+    },
+    "default": {
+      "size": {
+        "desktop": "16px",
+        "tablet": "16px",
+        "mobile": "14px"
+      },
+      "lineHeight": "1.6",
+      "weight": "400"
+    },
+    "small": {
+      "size": {
+        "desktop": "14px",
+        "tablet": "14px",
+        "mobile": "12px"
+      },
+      "lineHeight": "1.5",
+      "weight": "400"
+    },
+    "subtle": {
+      "size": {
+        "desktop": "15px",
+        "tablet": "15px",
+        "mobile": "14px"
+      },
+      "lineHeight": {
+        "desktop": "22px",
+        "tablet": "22px",
+        "mobile": "20px"
+      },
+      "weight": "400"
+    }
+  },
+  "small": {
+    "subtle": {
+      "size": {
+        "desktop": "13px",
+        "tablet": "13px",
+        "mobile": "12px"
+      },
+      "lineHeight": {
+        "desktop": "18px",
+        "tablet": "18px",
+        "mobile": "16px"
+      },
+      "weight": "400"
+    }
+  },
+  "badge": {
+    "size": {
+      "desktop": "14px",
+      "tablet": "14px",
+      "mobile": "12px"
+    },
+    "lineHeight": "1.4",
+    "weight": "500"
+  },
+  "button": {
+    "size": {
+      "default": "16px",
+      "small": "14px"
+    },
+    "lineHeight": "1.5",
+    "weight": "600"
+  },
+  "nav": {
+    "title": {
+      "size": "24px",
+      "lineHeight": "32px",
+      "weight": "600"
+    },
+    "label": {
+      "size": {
+        "desktop": "18px",
+        "tablet": "20px",
+        "mobile": "18px"
+      },
+      "lineHeight": {
+        "desktop": "24px",
+        "tablet": "28px",
+        "mobile": "24px"
+      },
+      "weight": "400"
+    },
+    "link": {
+      "size": {
+        "desktop": "15px",
+        "tablet": "16px",
+        "mobile": "15px"
+      },
+      "lineHeight": {
+        "desktop": "20px",
+        "tablet": "22px",
+        "mobile": "20px"
+      },
+      "weight": "400"
+    }
+  },
+  "caption": {
+    "size": "12px",
+    "lineHeight": "16px",
+    "weight": "400"
+  },
+  "overline": {
+    "size": "10px",
+    "lineHeight": "14px",
+    "weight": "600"
+  }
+}
+

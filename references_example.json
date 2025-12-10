@@ -1,0 +1,12 @@
+{
+  "hero": {
+    "screenshot": "/mnt/data/9309a2b0-3a7c-4372-8cbc-3030a29cc646.png",
+    "headline": "A Human-first Intelligent Design Systems",
+    "cta_primary": "Start Project",
+    "cta_secondary": "View Our Work"
+  },
+  "effects": {
+    "hero_background": "https://reactbits.dev/backgrounds/liquid-ether",
+    "install": "pnpm add three"
+  }
+}

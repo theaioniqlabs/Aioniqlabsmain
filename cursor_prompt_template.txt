@@ -1,0 +1,27 @@
+CURSOR PROMPT TEMPLATE (use as-is)
+
+MODE: PLAN
+
+CONTEXT:
+- Target component/section: <Hero | ExploreGrid | FeaturedCase | ...>
+- Reference screenshot (local path or URL): /mnt/data/your-screenshot.png
+- Optional effect/library: https://reactbits.dev/backgrounds/liquid-ether
+- Dependencies to install (if any): pnpm add three
+
+TASK:
+- Replace background of the <Hero> with the effect above.
+- Ensure hero content (headline, CTAs) stays interactive and accessible.
+- Lazy-load the background and use dynamic import. Respect prefers-reduced-motion.
+
+PLAN FORMAT (Cursor must output exactly this format)
+1) Files to modify (path)
+2) Components/functions to update
+3) Exact code changes (short summary)
+4) Tests to add/update
+5) Assets to include (paths or URLs)
+6) Pixel -> Token mapping (table)
+7) Assumptions
+
+After PLAN, user replies: APPROVED
+
+Then Cursor will EXECUTE.

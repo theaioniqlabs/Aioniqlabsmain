@@ -1,0 +1,305 @@
+# .cursorrules — AiONIQ Complete Project Rulebook (Balanced)
+# Copy-paste this file into your repo root as .cursorrules
+# Purpose: single-source project governance for Cursor — tokens, components, layout, scans, cleanup, CI, and safe workflows.
+# Mode: Balanced (Cursor may create components and modify files up to 8 files per approved PLAN)
+version: 1
+
+meta:
+  project: "AiONIQ Labs"
+  owner: "AiONIQ"
+  contact: "owner"
+  strictness: "balanced"
+  description: >
+    This .cursorrules file encodes AiONIQ's token-first, component-first, content-led workflow.
+    Cursor must follow these rules when producing/altering code, tokens, scripts, or archives.
+
+workflow:
+  mode_sequence:
+    - RESEARCH
+    - PLAN
+    - EXECUTE
+  approval_token: "APPROVED"         # required to move from PLAN -> EXECUTE
+  destructive_token: "EXECUTE-APPLY" # required to run archive/delete actions
+  max_files_per_plan: 8              # default cap for changes per PLAN (applies to all file operations)
+  require_branch: true               # require creating a branch for EXECUTE changes
+  branch_naming: "chore/aioniq-{short-desc}-{YYYYMMDD}" # branch name template (date format: YYYYMMDD)
+  commit_message_template: "{type}: {short-desc} — {YYYYMMDD}" # example
+  screenshot_first_workflow:
+    enabled: true
+    rules:
+      - "For UI component tasks, Cursor must request a screenshot or URL before editing (see UPDATED_WORKFLOW.md)."
+      - "Screenshot/URL is treated as source of truth. If Figma link provided, prefer Figma Inspect values."
+      - "Cursor must map visible spacing/sizes from screenshots to tokens (manual mapping step in PLAN)."
+
+project_structure:
+  root_files:
+    - package.json
+    - pnpm-lock.yaml
+    - next.config.js
+    - tsconfig.json
+    - .cursorrules
+    - README.md
+  client_app:
+    - path: "/app"
+      description: "Next.js App Router preferred (or /src). Contains layout.tsx and pages."
+  components:
+    - path: "/components/ui"
+      description: "Atomic UI primitives (Button, PageContainer, Typography, Icon, Card)."
+    - path: "/components/sections"
+      description: "Composable page sections (HeroSection, BentoGrid, CTA, FeatureList)."
+    - path: "/components/layout"
+      description: "Header, Footer, Nav."
+  ui_tokens:
+    - path: "/ui"
+      children:
+        - tokens.json
+        - typography.json
+        - colors.json
+        - layout-widths.json
+  public_assets:
+    - path: "/public/assets"
+      rules: "Only static, optimized exports. No source 3D files. Large binaries >5MB must be external or archived."
+  styles:
+    - path: "/styles"
+      allowed_files:
+        - typography.css
+        - containers.css
+        - utilities.css (only if warranted)
+  scripts:
+    - path: "/scripts"
+      allowed_files:
+        - token-scan.js
+        - token-report.js
+        - scan-unused.js
+  docs:
+    - path: "/docs"
+      description: "Design system and contributor docs."
+  archive:
+    - path: "/archive"
+      description: "git-moved backups for reversible cleanup."
+
+tokens:
+  enforce_tokens: true
+  token_files:
+    - "/ui/tokens.json"
+    - "/ui/typography.json"
+    - "/ui/colors.json"
+    - "/ui/layout-widths.json"
+  token_rule: >
+    1) ALL design values for spacing, radii, font sizes, line-heights, colors, and container widths must reference tokens or CSS variables defined in token_files.
+    2) Cursor MUST NOT emit raw px/rem/hex/hsl values in components/styles unless:
+       - a matching token exists, or
+       - Cursor proposes a new token in PLAN and receives APPROVED.
+  token_naming_convention:
+    spacing: "spacing-{value} (values: 4,8,12,16,20,24,32,40,48,64)"
+    font_size: "font-size-{label} (display-1, h1, h2, h3, body-md, body-sm, caption)"
+    color: "color-{semantic} (foreground, muted, border, primary, primary-foreground, accent)"
+    radius: "radius-{sm,md,lg}"
+    container: "container-{marketing|visual|showcase|app}"
+  token_variants:
+    - "Tokens must support light/dark variants where applicable (via CSS variables or suffixes)."
+  token_discovery:
+    - "On RESEARCH Cursor will run token coverage and produce token-coverage JSON with: coverage_percent, tokens_found, raw_literals, suggestions."
+  token_coverage_threshold:
+    value: 80
+    description: "Token coverage must be >= 80% before auto-replacement of raw literals is allowed. Coverage is calculated as: (tokens_used / total_design_values) * 100."
+
+layout_and_containers:
+  container_modes:
+    marketing:
+      max_width: "1280px" # Reference value — must map to container-marketing token
+      usage: "text-heavy content, hero text, case studies"
+    visual:
+      max_width: "1440px" # Reference value — must map to container-visual token
+      usage: "bento grids, galleries, feature clusters"
+    showcase:
+      max_width: "1728px" # Reference value — must map to container-showcase token
+      usage: "hero 3D, immersive visuals"
+    app:
+      max_width: "1800px" # Reference value — must map to container-app token
+      usage: "dashboard-like layouts"
+  vertical_rhythm:
+    desktop: "64-96px" # Reference values — must map to spacing tokens
+    tablet: "48px" # Reference value — must map to spacing token
+    mobile: "32px" # Reference value — must map to spacing token
+  PageContainer_requirement: true
+  suggested_css_snippets:
+    - name: "container-marketing"
+      css: "max-width: clamp(var(--spacing-80, 320px), 90vw, var(--container-marketing, 1280px)); margin: 0 auto; padding-inline: clamp(var(--spacing-12, 12px), 4vw, var(--spacing-40, 40px));"
+      note: "CSS variables with fallbacks. Replace fallback px values with tokens in actual implementation."
+
+component_contracts:
+  - "All components must export a typed props interface or type."
+  - "Props must be JSON-serializable (no complex function props except onClick/onSubmit)."
+  - "Default export required for React components."
+  - "Components must be stateless where possible; client-only code must be marked with 'use client'."
+  - "Add a short header comment in every created file describing token usage and intent."
+
+style_rules:
+  - "Use Tailwind utilities and CSS variables referencing tokens; avoid inline style attributes for design values."
+  - "Do not create new global CSS files except '/styles/typography.css' and '/styles/containers.css' unless PLAN documents and APPROVED them."
+  - "Tailwind theme.extend should map tokens to theme keys; Cursor should propose updates in PLAN."
+
+file_modification_rules:
+  allowed_modification_types:
+    - create
+    - update
+    - move (git mv)
+  destructive_actions:
+    - delete
+    - permanent_remove
+  destructive_requirements:
+    required_token: "EXECUTE-APPLY"
+    behavior: "Destructive changes must be preceded by a git mv into /archive and a tar backup. Cursor must include backup path in PLAN."
+  backup_behavior: "Before destructive action, create a tar backup and commit the archive; include backup path in PLAN summary."
+
+safety_and_reversibility:
+  - "Cursor must create a branch per PLAN and stage logical commits. Branch must follow branch_naming template."
+  - "All moves must use git mv for traceability."
+  - "If 'pnpm build' fails after EXECUTE, revert the last commit and stop further operations."
+  - "PLAN must include rollback instructions (git revert or reset commands)."
+
+scan_and_audit_scripts:
+  recommended_scripts:
+    - path: "/scripts/token-scan.js"
+      purpose: "Scan codebase for raw literals and produce scripts/token-coverage.json"
+    - path: "/scripts/scan-unused.js"
+      purpose: "List public assets and candidate unused files for review"
+  package_json_scripts:
+    - token:scan: "node scripts/token-scan.js"
+    - scan:unused: "node scripts/scan-unused.js"
+  token_scan_behavior:
+    - "Collect .tsx, .ts, .css, .scss, .js files (exclude node_modules)."
+    - "Extract color literals (#hex, hsl(...)), px/rem values, and propose token names."
+    - "Output top 200 literal samples and suggested semantic tokens."
+
+cleanup_and_archive_policy:
+  archive_path_template: "/archive/pre-reset-{YYYYMMDD}/"
+  archive_rules:
+    - "Low-risk items (unreferenced assets, build artifacts, test snapshots) should be git-moved to archive on EXECUTE-APPLY."
+    - "High-risk files must be flagged in PLAN for manual review."
+    - "Archive must include a README explaining why files were moved and how to restore."
+  retention: "Keep archives for 30 days before optional deletion; deletion requires explicit approval."
+
+token_migration_policy:
+  - "Cursor may auto-replace raw literals with existing tokens during EXECUTE only when token coverage >= 80% and file count <= max_files_per_plan."
+  - "If no token exists, Cursor must propose new tokens in PLAN and wait for APPROVED."
+  - "All token additions must include: name, value, rationale, affected_files, migration_map."
+
+ci_and_quality_gates:
+  minimal_ci:
+    - "pnpm lint"
+    - "pnpm test"
+    - "pnpm build"
+    - "pnpm token:scan"
+  optional_visual_checks:
+    - "Playwright snapshot for home and top pages (recommended)."
+  ci_workflow_example: |
+    name: CI
+    on: [push, pull_request]
+    jobs:
+      build:
+        runs-on: ubuntu-latest
+        steps:
+          - uses: actions/checkout@v4
+          - uses: pnpm/action-setup@v2
+            with:
+              version: 8
+          - run: pnpm install --frozen-lockfile
+          - run: pnpm lint
+          - run: pnpm test
+          - run: pnpm token:scan
+          - run: pnpm build
+
+find_and_replace_policy:
+  - "Cursor may replace hard-coded token-like values only if a matching token exists in token_files."
+  - "If no matching token exists, Cursor must propose the new token in PLAN."
+  - "Files containing '/* SKIP-MIGRATE */' must not be modified by automated replacements."
+
+governance_and_rules:
+  - "Cursor must never invent new brand colors or semantic tokens without a token proposal in PLAN and explicit APPROVED."
+  - "Cursor must prefer semantic tokens (color-primary) over neutral tokens (color-#111111)."
+  - "Cursor should propose token additions rather than ad-hoc replacements."
+
+hallucination_guards:
+  - "Cursor must list all assumptions in PLAN. Any assumption must be explicit and justified."
+  - "If Cursor is uncertain about a design choice, it must include a question in PLAN and wait for APPROVED."
+  - "Cursor must highlight any created values that are not in tokens in PLAN."
+
+file_size_policy:
+  - "Do not commit files > 5MB to the repo. Use external storage or Git LFS for large binaries."
+  - "Spline .spline source files must not be committed. Use exported poster images or scene URLs only."
+
+response_templates:
+  research_template: |
+    MODE: RESEARCH — Summary
+    - token_coverage: {percent}
+    - fonts_found: [...]
+    - colors_found: [...]
+    - candidate_files: [...]
+    - quick_risks: [...]
+    Next: MODE: PLAN
+  plan_template: |
+    MODE: PLAN — Proposed Changes
+    - branch: {branch_name}
+    - create_files: [...]
+    - modify_files: [...]
+    - archive_files: [...]
+    - new_tokens: [...]
+    - migration_map: { "oldLiteral": "token-name" }
+    - commands: [...]
+    - tests: [...]
+    - rollback: [...]
+    Assumptions: [...]
+    Do NOT EXECUTE. Reply with "APPROVED".
+  execute_template: |
+    MODE: EXECUTE — Actions performed
+    - branch: {branch_name}
+    - commits: [...]
+    - files_created: [...]
+    - files_modified: [...]
+    - archives: [...]
+    - tests: [...]
+    -   token_backup: /archive/tokens-backup-{YYYYMMDD}.json
+      - token_deprecations: /archive/token-deprecations-{YYYYMMDD}.json
+    - rollback: {rollback_instructions}
+
+operational_examples:
+  example_research_output: |
+    MODE: RESEARCH
+    Found 72 unique color usages; 18 map directly to /ui/colors.json tokens; 54 require token proposals.
+    Found 120 components; top 12 with inline styles listed in candidate_files.
+    Next: MODE: PLAN
+  example_plan_snippet: |
+    MODE: PLAN
+    Proposed:
+    - create /components/ui/PageContainer.tsx
+    - create /ui/tokens.json (if missing)
+    - update /components/ui/Button.tsx to use token-based classes
+    - tests: pnpm lint && pnpm test
+    Do NOT EXECUTE. Reply with "APPROVED".
+
+pr_and_commit_guidelines:
+  branch_template: "chore/aioniq-{short-desc}-{YYYYMMDD}" # Use workflow.branch_naming format
+  commit_rules:
+    - "One logical change per commit."
+    - "Include token changes in separate commits."
+  pr_requirements:
+    - "Summary"
+    - "Files changed"
+    - "Token changes"
+    - "Tests & results"
+    - "Manual checks required (pages)"
+    - "Rollback instructions (git revert <sha>)"
+
+developer_onboarding_snippet: |
+  1. Clone repo
+  2. Install: pnpm install
+  3. Run token scan: pnpm token:scan
+  4. Create a branch per .cursorrules naming template
+  5. Follow MODE: RESEARCH -> PLAN -> APPROVE -> EXECUTE
+
+notes:
+  - "Balanced mode allows productivity while preserving safety and traceability."
+
+# End of .cursorrules

@@ -1,0 +1,77 @@
+{
+  "brand": {
+    "primary": "#1F2937",
+    "primaryDark": "#1F2937",
+    "primaryLight": "#1F2937"
+  },
+  "text": {
+    "primary": "#1A1A1A",
+    "secondary": "#6B7280",
+    "tertiary": "#9CA3AF",
+    "inverse": "#FFFFFF"
+  },
+  "background": {
+    "primary": "#FAFAFA",
+    "secondary": "#F9FAFB",
+    "tertiary": "#F3F4F6"
+  },
+  "card": {
+    "bg": "#EEF0F2"
+  },
+  "button": {
+    "primary": {
+      "bg": "#1A1A1A",
+      "text": "#FFFFFF",
+      "hover": "#1F2937"
+    },
+    "secondary": {
+      "bg": "#F3F4F6",
+      "text": "#1A1A1A",
+      "hover": "#E5E7EB",
+      "border": "#D1D5DB"
+    }
+  },
+  "badge": {
+    "bg": "#E5E7EB",
+    "text": "#1A1A1A"
+  },
+  "avatar": {
+    "placeholder": "#FFDAB9"
+  },
+  "nav": {
+    "overlay": {
+      "bg": "#1F2937"
+    },
+    "card": {
+      "bg": "#1F2937",
+      "hover": "#1F2937"
+    },
+    "shadow": "0 2px 8px rgba(0, 0, 0, 0.1)"
+  },
+  "border": {
+    "default": "#D1D5DB"
+  },
+  "shadcn": {
+    "background": "0 0% 100%",
+    "foreground": "0 0% 10%",
+    "primary": "215 28% 17%",
+    "primaryForeground": "0 0% 100%",
+    "secondary": "0 0% 98%",
+    "secondaryForeground": "0 0% 10%",
+    "muted": "0 0% 95%",
+    "mutedForeground": "0 0% 45%",
+    "accent": "215 28% 17%",
+    "accentForeground": "0 0% 10%",
+    "destructive": "0 84% 60%",
+    "destructiveForeground": "0 0% 100%",
+    "border": "0 0% 82%",
+    "input": "0 0% 82%",
+    "ring": "215 28% 17%",
+    "popover": "0 0% 100%",
+    "popoverForeground": "0 0% 10%",
+    "card": "0 0% 100%",
+    "cardForeground": "0 0% 10%",
+    "radius": "0.75rem"
+  }
+}
+

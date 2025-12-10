@@ -1,0 +1,88 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env files
+.env*.local
+
+# vercel
+.vercel
+vercel.json
+DEPLOYMENT.md
+deploy-*.ps1
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# archive files with sensitive data
+docs/archive/figma-web/Inspects.md
+
+# screenshots and images (except public/assets)
+*.png
+*.jpg
+*.jpeg
+*.gif
+!public/assets/**/*.png
+!public/assets/**/*.jpg
+!public/assets/**/*.jpeg
+!public/assets/**/*.gif
+!public/assets/**/*.webp
+!public/assets/**/*.svg
+
+# PDF files
+*.pdf
+
+# Figma files
+*.fig
+
+# reference/archive data folder
+/mnt/data/
+
+# Archive and cleanup folders
+/archive/
+/docs/archive/
+
+# Planning and temporary documentation
+PLAN_*.md
+PROJECT_HEALTH_REPORT.md
+CLEANUP_REVIEW.md
+CURSOR_FILE_NOT_FOUND_FIX.md
+EXECUTE_CLEANUP_20251209.md
+UNUSED_FILES_ANALYSIS.md
+UPDATED_MASTER_PROJECT_MANUAL.md
+UPDATED_WORKFLOW.md
+
+# Documentation/instructions folder
+/A/
+
+# Package lock files (using pnpm)
+package-lock.json
+
+# Scripts output files
+scripts/*.json
+scripts/*.md
+!scripts/token-scan.js
+!scripts/scan-unused.js

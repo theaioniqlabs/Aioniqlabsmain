@@ -1,0 +1,710 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Spacing - Container */
+  --spacing-container-max-width-xl: 1280px;
+  --spacing-container-max-width-lg: 1024px;
+  --spacing-container-max-width-md: 768px;
+  --spacing-container-padding-desktop: 80px;
+  --spacing-container-padding-tablet: 40px;
+  --spacing-container-padding-mobile: 24px;
+
+  /* Container System - Global Layout Tokens */
+  --gutter-desktop: 20px;
+  --gutter-mobile: 10px;
+  --marketing-max: 1280px;
+  --visual-max: 1440px;
+  --showcase-max: 1728px;
+  --app-max: 1800px;
+
+  /* Spacing - Section */
+  --spacing-section-vertical-desktop: 80px;
+  --spacing-section-vertical-tablet: 80px;
+  --spacing-section-vertical-mobile: 60px;
+
+  /* Spacing - Nav */
+  --spacing-nav-height: 80px;
+  --nav-padding-x-mobile: 24px;
+  --nav-padding-x-desktop: 80px;
+  --nav-logo-height: 40px;
+  --nav-overlay-padding-top: 120px;
+  --nav-header-gap: auto;
+
+  /* Spacing - Hero */
+  --spacing-hero-image-height: 260px;
+
+  /* Spacing - Banner */
+  --spacing-banner-height-desktop: 200px;
+  --spacing-banner-height-tablet: 180px;
+  --spacing-banner-height-mobile: 150px;
+  --spacing-banner-gap-top: 32px;
+  --spacing-banner-gap-bottom: 48px;
+
+  /* Spacing - Stack */
+  --spacing-stack-gap-xs: 8px;
+  --spacing-stack-gap-sm: 16px;
+  --spacing-stack-gap-md: 24px;
+  --spacing-stack-gap-lg: 32px;
+  --spacing-stack-gap-xl: 48px;
+  --spacing-stack-gap-2xl: 64px;
+
+  /* Spacing - Button */
+  --spacing-button-height-default: 56px;
+  --spacing-button-height-small: 48px;
+  --spacing-button-padding-x-default: 32px;
+  --spacing-button-padding-x-small: 24px;
+
+  /* Spacing - Avatar */
+  --spacing-avatar-size-default: 48px;
+  --spacing-avatar-size-small: 40px;
+  --spacing-avatar-gap: -12px;
+
+  /* Spacing - Icon */
+  --icon-size-default: 24px;
+  --icon-size-small: 12px;
+
+  /* Spacing - Card */
+  --card-padding: 32px;
+  --card-padding-x: 32px;
+  --card-padding-y: 32px;
+  --card-nav-gap: 48px;
+
+  /* Spacing - Badge */
+  --spacing-badge-height: 32px;
+  --spacing-badge-padding-x: 16px;
+  --spacing-badge-padding-y: 8px;
+
+  /* Typography - Headline */
+  --typography-headline-size-desktop: 64px;
+  --typography-headline-size-tablet: 56px;
+  --typography-headline-size-mobile: 40px;
+  --typography-headline-line-height-desktop: 72px;
+  --typography-headline-line-height-tablet: 64px;
+  --typography-headline-line-height-mobile: 48px;
+  --typography-headline-weight: 700;
+
+  /* Typography - Body */
+  --typography-body-large-size-desktop: 18px;
+  --typography-body-large-size-tablet: 18px;
+  --typography-body-large-size-mobile: 16px;
+  --typography-body-large-line-height-desktop: 28px;
+  --typography-body-large-line-height-tablet: 28px;
+  --typography-body-large-line-height-mobile: 24px;
+  --typography-body-large-weight: 400;
+
+  --typography-body-default-size-desktop: 16px;
+  --typography-body-default-size-tablet: 16px;
+  --typography-body-default-size-mobile: 14px;
+  --typography-body-default-line-height: 1.6;
+  --typography-body-default-weight: 400;
+
+  /* Typography - Badge */
+  --typography-badge-size-desktop: 14px;
+  --typography-badge-size-tablet: 14px;
+  --typography-badge-size-mobile: 12px;
+  --typography-badge-line-height: 1.4;
+  --typography-badge-weight: 500;
+
+  /* Typography - Button */
+  --typography-button-size-default: 16px;
+  --typography-button-size-small: 14px;
+  --typography-button-line-height: 1.5;
+  --typography-button-weight: 600;
+
+  /* Typography - Font Family */
+  --typography-font-family-body: "Google Sans Flex", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --typography-font-family-heading: "Google Sans Flex", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Google Sans Flex Variable Font Settings */
+  --google-sans-flex-settings: "slnt" 0, "wdth" 100, "GRAD" 0, "ROND" 0;
+
+  /* Typography - H2 */
+  --typography-h2-size-desktop: 48px;
+  --typography-h2-size-tablet: 42px;
+  --typography-h2-size-mobile: 32px;
+  --typography-h2-line-height-desktop: 56px;
+  --typography-h2-line-height-tablet: 50px;
+  --typography-h2-line-height-mobile: 40px;
+  --typography-h2-weight: 600;
+
+  /* Typography - H3 */
+  --typography-h3-size-desktop: 36px;
+  --typography-h3-size-tablet: 32px;
+  --typography-h3-size-mobile: 28px;
+  --typography-h3-line-height-desktop: 42px;
+  --typography-h3-line-height-tablet: 38px;
+  --typography-h3-line-height-mobile: 34px;
+  --typography-h3-weight: 600;
+
+  /* Typography - H4 */
+  --typography-h4-size-desktop: 28px;
+  --typography-h4-size-tablet: 26px;
+  --typography-h4-size-mobile: 24px;
+  --typography-h4-line-height-desktop: 36px;
+  --typography-h4-line-height-tablet: 34px;
+  --typography-h4-line-height-mobile: 32px;
+  --typography-h4-weight: 600;
+
+  /* Typography - Body Small */
+  --typography-body-small-size-desktop: 14px;
+  --typography-body-small-size-tablet: 14px;
+  --typography-body-small-size-mobile: 12px;
+  --typography-body-small-line-height: 1.5;
+  --typography-body-small-weight: 400;
+
+  /* Typography - Nav Title */
+  --typography-nav-title-size: 24px;
+  --typography-nav-title-line-height: 32px;
+  --typography-nav-title-weight: 600;
+
+  /* Typography - Nav Label */
+  --typography-nav-label-size-desktop: 18px;
+  --typography-nav-label-size-tablet: 20px;
+  --typography-nav-label-size-mobile: 18px;
+  --typography-nav-label-line-height-desktop: 24px;
+  --typography-nav-label-line-height-tablet: 28px;
+  --typography-nav-label-line-height-mobile: 24px;
+  --typography-nav-label-weight: 400;
+
+  /* Typography - Nav Link */
+  --typography-nav-link-size-desktop: 15px;
+  --typography-nav-link-size-tablet: 16px;
+  --typography-nav-link-size-mobile: 15px;
+  --typography-nav-link-line-height-desktop: 20px;
+  --typography-nav-link-line-height-tablet: 22px;
+  --typography-nav-link-line-height-mobile: 20px;
+  --typography-nav-link-weight: 400;
+
+  /* Typography - Caption */
+  --typography-caption-size: 12px;
+  --typography-caption-line-height: 16px;
+  --typography-caption-weight: 400;
+
+  /* Typography - Overline */
+  --typography-overline-size: 10px;
+  --typography-overline-line-height: 14px;
+  --typography-overline-weight: 600;
+
+  /* Typography - Subtle Scale (for Hero, content sections) */
+  --typography-h1-subtle-size-desktop: 28px;
+  --typography-h1-subtle-size-tablet: 26px;
+  --typography-h1-subtle-size-mobile: 24px;
+  --typography-h1-subtle-line-height-desktop: 32px;
+  --typography-h1-subtle-line-height-tablet: 30px;
+  --typography-h1-subtle-line-height-mobile: 28px;
+  --typography-h1-subtle-weight: 700;
+
+  --typography-h2-subtle-size-desktop: 24px;
+  --typography-h2-subtle-size-tablet: 22px;
+  --typography-h2-subtle-size-mobile: 20px;
+  --typography-h2-subtle-line-height-desktop: 28px;
+  --typography-h2-subtle-line-height-tablet: 26px;
+  --typography-h2-subtle-line-height-mobile: 24px;
+  --typography-h2-subtle-weight: 600;
+
+  --typography-h3-subtle-size-desktop: 18px;
+  --typography-h3-subtle-size-tablet: 17px;
+  --typography-h3-subtle-size-mobile: 16px;
+  --typography-h3-subtle-line-height-desktop: 24px;
+  --typography-h3-subtle-line-height-tablet: 22px;
+  --typography-h3-subtle-line-height-mobile: 20px;
+  --typography-h3-subtle-weight: 600;
+
+  --typography-body-subtle-size-desktop: 15px;
+  --typography-body-subtle-size-tablet: 15px;
+  --typography-body-subtle-size-mobile: 14px;
+  --typography-body-subtle-line-height-desktop: 22px;
+  --typography-body-subtle-line-height-tablet: 22px;
+  --typography-body-subtle-line-height-mobile: 20px;
+  --typography-body-subtle-weight: 400;
+
+  --typography-small-subtle-size-desktop: 13px;
+  --typography-small-subtle-size-tablet: 13px;
+  --typography-small-subtle-size-mobile: 12px;
+  --typography-small-subtle-line-height-desktop: 18px;
+  --typography-small-subtle-line-height-tablet: 18px;
+  --typography-small-subtle-line-height-mobile: 16px;
+  --typography-small-subtle-weight: 400;
+
+  /* Colors - Brand */
+  --color-brand-primary: #1F2937;
+  --color-brand-primary-dark: #1F2937;
+  --color-brand-primary-light: #1F2937;
+
+  /* Colors - Text */
+  --color-text-primary: #1A1A1A;
+  --color-text-secondary: #6B7280;
+  --color-text-tertiary: #9CA3AF;
+  --color-text-inverse: #FFFFFF;
+
+  /* Colors - Background */
+  --color-background-primary: #FAFAFA;
+  --color-background-secondary: #F9FAFB;
+  --color-background-tertiary: #F3F4F6;
+  
+  /* Colors - Card */
+  --color-card-bg: #EEF0F2;
+
+  /* Colors - Button */
+  --color-button-primary-bg: #1A1A1A;
+  --color-button-primary-text: #FFFFFF;
+  --color-button-primary-hover: #1F2937;
+  --color-button-secondary-bg: #F3F4F6;
+  --color-button-secondary-text: #1A1A1A;
+  --color-button-secondary-hover: #E5E7EB;
+  --color-button-secondary-border: #D1D5DB;
+
+  /* Colors - Badge */
+  --color-badge-bg: #E5E7EB;
+  --color-badge-text: #1A1A1A;
+
+  /* Colors - Avatar */
+  --color-avatar-placeholder: #FFDAB9;
+
+  /* Colors - Nav */
+  --nav-overlay-bg: #1F2937;
+  --nav-card-bg: #1F2937;
+  --nav-card-hover: #1F2937;
+  --nav-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  /* Radii */
+  --radii-button-pill: 9999px;
+  --radii-button-default: 8px;
+  --radii-badge-default: 9999px;
+  --radii-card-default: 12px;
+  --radii-card-nav: 16px;
+  --radii-avatar-circle: 50%;
+  --radii-banner-default: 16px;
+
+  /* Shadows */
+  --shadow-banner: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+  /* shadcn/ui color tokens (mapped to AiONIQ tokens) */
+  /* HSL format required by shadcn/ui */
+  --background: 0 0% 100%; /* Maps to --color-background-primary (#FFFFFF) */
+  --foreground: 0 0% 10%;   /* Maps to --color-text-primary (#1A1A1A) */
+  
+  --primary: 215 28% 17%;  /* Maps to --color-brand-primary (#1F2937) */
+  --primary-foreground: 0 0% 100%; /* Maps to --color-text-inverse (#FFFFFF) */
+  
+  --secondary: 0 0% 98%;    /* Maps to --color-background-secondary (#F9FAFB) */
+  --secondary-foreground: 0 0% 10%; /* Maps to --color-text-primary (#1A1A1A) */
+  
+  --muted: 0 0% 95%;        /* Maps to --color-background-tertiary (#F3F4F6) */
+  --muted-foreground: 0 0% 45%; /* Maps to --color-text-secondary (#6B7280) */
+  
+  --accent: 215 28% 17%;    /* Maps to --color-brand-primary-light (#1F2937) */
+  --accent-foreground: 0 0% 10%; /* Maps to --color-text-primary (#1A1A1A) */
+  
+  --destructive: 0 84% 60%; /* Standard red for destructive actions */
+  --destructive-foreground: 0 0% 100%; /* Maps to --color-text-inverse (#FFFFFF) */
+  
+  --border: 0 0% 82%;       /* Maps to --color-button-secondary-border (#D1D5DB) */
+  --input: 0 0% 82%;        /* Maps to --color-button-secondary-border (#D1D5DB) */
+  --ring: 215 28% 17%;     /* Maps to --color-brand-primary (#1F2937) */
+  
+  /* Border color (for inline styles) */
+  --color-border-default: #D1D5DB; /* Maps to --border */
+  
+  --popover: 0 0% 100%;     /* Maps to --color-background-primary (#FFFFFF) */
+  --popover-foreground: 0 0% 10%; /* Maps to --color-text-primary (#1A1A1A) */
+  
+  --card: 0 0% 100%;        /* Maps to --color-background-primary (#FFFFFF) */
+  --card-foreground: 0 0% 10%; /* Maps to --color-text-primary (#1A1A1A) */
+  
+  --radius: 0.75rem;        /* Maps to --radii-card-default (12px) */
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: var(--typography-font-family-body);
+}
+
+body {
+  color: var(--color-text-primary);
+  background: var(--color-background-primary);
+  font-family: var(--typography-font-family-body);
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Headings: Google Sans Flex (Brand Identity) */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--typography-font-family-heading);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Google Sans Flex Variable Font Utility Class */
+.google-sans-flex {
+  font-family: "Google Sans Flex", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings:
+    "slnt" 0,
+    "wdth" 100,
+    "GRAD" 0,
+    "ROND" 0;
+}
+
+/* Typography Utility Classes */
+.text-headline {
+  font-size: var(--typography-headline-size-desktop);
+  line-height: var(--typography-headline-line-height-desktop);
+  font-weight: var(--typography-headline-weight);
+  font-family: var(--typography-font-family-heading);
+}
+
+.text-h2 {
+  font-size: var(--typography-h2-size-desktop);
+  line-height: var(--typography-h2-line-height-desktop);
+  font-weight: var(--typography-h2-weight);
+  font-family: var(--typography-font-family-heading);
+}
+
+.text-h3 {
+  font-size: var(--typography-h3-size-desktop);
+  line-height: var(--typography-h3-line-height-desktop);
+  font-weight: var(--typography-h3-weight);
+  font-family: var(--typography-font-family-heading);
+}
+
+.text-h4 {
+  font-size: var(--typography-h4-size-desktop);
+  line-height: var(--typography-h4-line-height-desktop);
+  font-weight: var(--typography-h4-weight);
+  font-family: var(--typography-font-family-heading);
+}
+
+.text-body-large {
+  font-size: var(--typography-body-large-size-desktop);
+  line-height: var(--typography-body-large-line-height-desktop);
+  font-weight: var(--typography-body-large-weight);
+  font-family: var(--typography-font-family-body);
+}
+
+.text-body {
+  font-size: var(--typography-body-default-size-desktop);
+  line-height: var(--typography-body-default-line-height);
+  font-weight: var(--typography-body-default-weight);
+  font-family: var(--typography-font-family-body);
+}
+
+.text-body-small {
+  font-size: var(--typography-body-small-size-desktop);
+  line-height: var(--typography-body-small-line-height);
+  font-weight: var(--typography-body-small-weight);
+  font-family: var(--typography-font-family-body);
+}
+
+.text-nav-label {
+  font-size: var(--typography-nav-label-size-desktop);
+  line-height: var(--typography-nav-label-line-height-desktop);
+  font-weight: var(--typography-nav-label-weight);
+  font-family: var(--typography-font-family-body);
+}
+
+.text-nav-link {
+  font-size: var(--typography-nav-link-size-desktop);
+  line-height: var(--typography-nav-link-line-height-desktop);
+  font-weight: var(--typography-nav-link-weight);
+  font-family: var(--typography-font-family-body);
+}
+
+.font-heading {
+  font-family: var(--typography-font-family-heading);
+}
+
+.font-body {
+  font-family: var(--typography-font-family-body);
+}
+
+/* Subtle Typography Utility Classes (for Hero, content sections) */
+.text-h1-subtle {
+  font-size: var(--typography-h1-subtle-size-desktop);
+  line-height: var(--typography-h1-subtle-line-height-desktop);
+  font-weight: var(--typography-h1-subtle-weight);
+  font-family: var(--typography-font-family-heading);
+}
+
+.text-h2-subtle {
+  font-size: var(--typography-h2-subtle-size-desktop);
+  line-height: var(--typography-h2-subtle-line-height-desktop);
+  font-weight: var(--typography-h2-subtle-weight);
+  font-family: var(--typography-font-family-heading);
+}
+
+.text-h3-subtle {
+  font-size: var(--typography-h3-subtle-size-desktop);
+  line-height: var(--typography-h3-subtle-line-height-desktop);
+  font-weight: var(--typography-h3-subtle-weight);
+  font-family: var(--typography-font-family-heading);
+}
+
+.text-body-subtle {
+  font-size: var(--typography-body-subtle-size-desktop);
+  line-height: var(--typography-body-subtle-line-height-desktop);
+  font-weight: var(--typography-body-subtle-weight);
+  font-family: var(--typography-font-family-body);
+}
+
+.text-small-subtle {
+  font-size: var(--typography-small-subtle-size-desktop);
+  line-height: var(--typography-small-subtle-line-height-desktop);
+  font-weight: var(--typography-small-subtle-weight);
+  font-family: var(--typography-font-family-body);
+}
+
+/* Responsive Typography */
+@media (max-width: 1024px) {
+  .text-headline {
+    font-size: var(--typography-headline-size-tablet);
+    line-height: var(--typography-headline-line-height-tablet);
+  }
+  .text-h2 {
+    font-size: var(--typography-h2-size-tablet);
+    line-height: var(--typography-h2-line-height-tablet);
+  }
+  .text-h3 {
+    font-size: var(--typography-h3-size-tablet);
+    line-height: var(--typography-h3-line-height-tablet);
+  }
+  .text-h4 {
+    font-size: var(--typography-h4-size-tablet);
+    line-height: var(--typography-h4-line-height-tablet);
+  }
+  .text-body-large {
+    font-size: var(--typography-body-large-size-tablet);
+    line-height: var(--typography-body-large-line-height-tablet);
+  }
+  .text-body {
+    font-size: var(--typography-body-default-size-tablet);
+  }
+  .text-body-small {
+    font-size: var(--typography-body-small-size-tablet);
+  }
+  .text-nav-label {
+    font-size: var(--typography-nav-label-size-tablet);
+    line-height: var(--typography-nav-label-line-height-tablet);
+  }
+  .text-nav-link {
+    font-size: var(--typography-nav-link-size-tablet);
+    line-height: var(--typography-nav-link-line-height-tablet);
+  }
+  .text-h1-subtle {
+    font-size: var(--typography-h1-subtle-size-tablet);
+    line-height: var(--typography-h1-subtle-line-height-tablet);
+  }
+  .text-h2-subtle {
+    font-size: var(--typography-h2-subtle-size-tablet);
+    line-height: var(--typography-h2-subtle-line-height-tablet);
+  }
+  .text-h3-subtle {
+    font-size: var(--typography-h3-subtle-size-tablet);
+    line-height: var(--typography-h3-subtle-line-height-tablet);
+  }
+  .text-body-subtle {
+    font-size: var(--typography-body-subtle-size-tablet);
+    line-height: var(--typography-body-subtle-line-height-tablet);
+  }
+  .text-small-subtle {
+    font-size: var(--typography-small-subtle-size-tablet);
+    line-height: var(--typography-small-subtle-line-height-tablet);
+  }
+}
+
+@media (max-width: 768px) {
+  .text-headline {
+    font-size: var(--typography-headline-size-mobile);
+    line-height: var(--typography-headline-line-height-mobile);
+  }
+  .text-h2 {
+    font-size: var(--typography-h2-size-mobile);
+    line-height: var(--typography-h2-line-height-mobile);
+  }
+  .text-h3 {
+    font-size: var(--typography-h3-size-mobile);
+    line-height: var(--typography-h3-line-height-mobile);
+  }
+  .text-h4 {
+    font-size: var(--typography-h4-size-mobile);
+    line-height: var(--typography-h4-line-height-mobile);
+  }
+  .text-body-large {
+    font-size: var(--typography-body-large-size-mobile);
+    line-height: var(--typography-body-large-line-height-mobile);
+  }
+  .text-body {
+    font-size: var(--typography-body-default-size-mobile);
+  }
+  .text-body-small {
+    font-size: var(--typography-body-small-size-mobile);
+  }
+  .text-nav-label {
+    font-size: var(--typography-nav-label-size-mobile);
+    line-height: var(--typography-nav-label-line-height-mobile);
+  }
+  .text-nav-link {
+    font-size: var(--typography-nav-link-size-mobile);
+    line-height: var(--typography-nav-link-line-height-mobile);
+  }
+  .text-h1-subtle {
+    font-size: var(--typography-h1-subtle-size-mobile);
+    line-height: var(--typography-h1-subtle-line-height-mobile);
+  }
+  .text-h2-subtle {
+    font-size: var(--typography-h2-subtle-size-mobile);
+    line-height: var(--typography-h2-subtle-line-height-mobile);
+  }
+  .text-h3-subtle {
+    font-size: var(--typography-h3-subtle-size-mobile);
+    line-height: var(--typography-h3-subtle-line-height-mobile);
+  }
+  .text-body-subtle {
+    font-size: var(--typography-body-subtle-size-mobile);
+    line-height: var(--typography-body-subtle-line-height-mobile);
+  }
+  .text-small-subtle {
+    font-size: var(--typography-small-subtle-size-mobile);
+    line-height: var(--typography-small-subtle-line-height-mobile);
+  }
+}
+
+/* Grid System Utilities */
+/* Mobile (390px): 4-column implicit grid */
+.grid-mobile {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+/* Desktop (1440px): 12-column implicit grid */
+@media (min-width: 1024px) {
+  .grid-desktop {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 1rem;
+  }
+}
+
+/* Combined: Mobile 4-column, Desktop 12-column */
+.grid-page {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .grid-page {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Dome Gallery scroll lock */
+body.dg-scroll-lock {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  overflow: hidden !important;
+  touch-action: none !important;
+  overscroll-behavior: contain !important;
+}
+
+/* Card Utility Classes */
+.card-stack {
+  display: grid;
+  gap: var(--spacing-stack-gap-md);
+}
+
+.card-item {
+  background: var(--color-card-bg, var(--color-background-primary));
+  border-radius: var(--radii-card-default);
+  padding: var(--card-padding);
+  transition: transform 300ms ease, box-shadow 300ms ease;
+}
+
+.card-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-item {
+    transition: none;
+  }
+  
+  .card-item:hover {
+    transform: none;
+  }
+}
+
+/* Blink animation for typewriter cursor */
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+.animate-blink {
+  animation: blink 1s infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-blink {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+/* PageContainer responsive padding */
+.page-container[data-container-mode] {
+  padding-inline: var(--gutter-mobile);
+}
+
+@media (min-width: 1024px) {
+  .page-container[data-container-mode] {
+    padding-inline: var(--gutter-desktop);
+  }
+}
+
+/* Navigation container responsive padding */
+.nav-container {
+  padding-inline: var(--gutter-mobile);
+}
+
+@media (min-width: 1024px) {
+  .nav-container {
+    padding-inline: var(--gutter-desktop);
+  }
+}
+

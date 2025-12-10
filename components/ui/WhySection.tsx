@@ -86,7 +86,7 @@ export const WhySection: React.FC = () => {
         <div
           className="mb-16 md:mb-20 p-8 md:p-12 lg:p-16 bg-gradient-to-br from-primary to-primary/80 text-primary-foreground rounded-2xl md:rounded-3xl"
           style={{
-            boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+            boxShadow: '0 4px 6px -1px var(--color-text-primary-10), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
           }}
         >
           <div className="max-w-3xl">
@@ -226,7 +226,7 @@ export const WhySection: React.FC = () => {
                 <div
                   className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0 mt-0.5"
                   style={{
-                    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+                    boxShadow: '0 2px 4px var(--color-text-primary-10)',
                   }}
                 >
                   <span
@@ -314,7 +314,7 @@ export const WhySection: React.FC = () => {
           className="mt-16 md:mt-20 lg:mt-24 p-8 md:p-12 bg-primary/5 rounded-xl md:rounded-2xl text-center border border-primary/10"
           style={{
             padding: 'var(--card-padding)',
-            boxShadow: '0 1px 3px rgba(0, 0, 0, 0.05)',
+            boxShadow: '0 1px 3px rgba(0, 0, 0, 0.05)', // Very subtle shadow (0.05 opacity - edge case, keeping as-is)
           }}
         >
           <h3

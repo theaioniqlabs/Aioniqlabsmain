@@ -73,17 +73,29 @@ export const TypewriterTestimonial: React.FC<TypewriterTestimonialProps> = ({ te
         audioPlayerRef.current = newAudio;
         
         // Check if audio can be loaded before attempting to play
-        newAudio.addEventListener('error', () => {
-          // Audio file not found or failed to load - silently fail
+        newAudio.addEventListener('error', (e) => {
+          // Audio file not found or failed to load
+          // Log in development for debugging, silent in production
+          if (process.env.NODE_ENV === 'development') {
+            console.warn(`[TypewriterTestimonial] Audio file not found or failed to load: /audio/${audioFile}`, e);
+          }
           audioPlayerRef.current = null;
         });
         
-        newAudio.play().catch(() => {
-          // Audio playback failed (user interaction required, file missing, etc.) - silently fail
+        newAudio.play().catch((e) => {
+          // Audio playback failed (user interaction required, file missing, etc.)
+          // Log in development for debugging, silent in production
+          if (process.env.NODE_ENV === 'development') {
+            console.warn(`[TypewriterTestimonial] Audio playback prevented or failed for: /audio/${audioFile}`, e);
+          }
           audioPlayerRef.current = null;
         });
-      } catch {
-        // Failed to create audio element - silently fail
+      } catch (e) {
+        // Failed to create audio element
+        // Log in development for debugging, silent in production
+        if (process.env.NODE_ENV === 'development') {
+          console.warn(`[TypewriterTestimonial] Failed to create audio element for: /audio/${audioFile}`, e);
+        }
         audioPlayerRef.current = null;
       }
     }
@@ -126,7 +138,7 @@ export const TypewriterTestimonial: React.FC<TypewriterTestimonialProps> = ({ te
             alt={`Testimonial from ${testimonial.name}`}
             className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full border-4 hover:animate-pulse border-gray-300"
             animate={{ 
-              borderColor: (hoveredIndex === index || hasBeenHovered[index]) ? '#ACA0FB' : '#E5E7EB'
+              borderColor: (hoveredIndex === index || hasBeenHovered[index]) ? 'var(--color-testimonial-border-active)' : 'var(--color-testimonial-border-default)'
             }}
             transition={{ duration: 0.3 }}
           />

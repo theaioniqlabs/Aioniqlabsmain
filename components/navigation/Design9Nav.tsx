@@ -53,7 +53,7 @@ export const Design9Nav: React.FC<Design9NavProps> = ({
             maxWidth: 'var(--visual-max)',
             marginLeft: 'auto',
             marginRight: 'auto',
-            height: '64px', // h-16
+            height: 'var(--spacing-banner-height)', // 64px - matches banner height
           }}
         >
           <div className="flex items-center justify-between h-full">
@@ -86,7 +86,7 @@ export const Design9Nav: React.FC<Design9NavProps> = ({
                     className={`px-4 py-2 rounded-lg transition-all flex items-center gap-2 ${
                       isActive
                         ? 'bg-black text-white'
-                        : 'text-foreground/60 hover:text-foreground hover:bg-[#F3F4F6]'
+                        : 'text-foreground/60 hover:text-foreground hover:bg-[var(--color-gray-light)]'
                     }`}
                     aria-current={isActive ? 'page' : undefined}
                   >

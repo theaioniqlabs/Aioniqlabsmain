@@ -16,25 +16,25 @@ const exploreCards: ExploreCard[] = [
   {
     title: 'Portfolio',
     description: 'Explore our creative work and case studies',
-    icon: <Layers className="w-6 h-6" style={{ color: 'rgba(0, 0, 0, 0.8)' }} aria-hidden="true" />,
+    icon: <Layers className="w-6 h-6" style={{ color: 'var(--color-text-primary-80)' }} aria-hidden="true" />,
     href: '#',
   },
   {
     title: 'Philosophy',
     description: 'The AIONIQ Code and our principles',
-    icon: <Lightbulb className="w-6 h-6" style={{ color: 'rgba(0, 0, 0, 0.8)' }} aria-hidden="true" />,
+    icon: <Lightbulb className="w-6 h-6" style={{ color: 'var(--color-text-primary-80)' }} aria-hidden="true" />,
     href: '#',
   },
   {
     title: 'Process',
     description: 'Our 90-day framework and systems',
-    icon: <Cpu className="w-6 h-6" style={{ color: 'rgba(0, 0, 0, 0.8)' }} aria-hidden="true" />,
+    icon: <Cpu className="w-6 h-6" style={{ color: 'var(--color-text-primary-80)' }} aria-hidden="true" />,
     href: '#',
   },
   {
     title: 'Founder',
     description: 'Meet the mind behind AIONIQ Labs',
-    icon: <User className="w-6 h-6" style={{ color: 'rgba(0, 0, 0, 0.8)' }} aria-hidden="true" />,
+    icon: <User className="w-6 h-6" style={{ color: 'var(--color-text-primary-80)' }} aria-hidden="true" />,
     href: '#',
   },
 ]
@@ -86,8 +86,8 @@ export const ExploreSection: React.FC = () => {
                 <div
                   className="w-12 h-12 rounded-lg bg-primary/5 flex items-center justify-center group-hover:bg-primary/10 transition-colors"
                   style={{
-                    width: '48px',
-                    height: '48px',
+                    width: 'var(--spacing-avatar-size-default)',
+                    height: 'var(--spacing-avatar-size-default)',
                     borderRadius: 'var(--radii-button-default)', // 8px
                     backgroundColor: 'hsl(var(--primary) / 0.05)',
                   }}

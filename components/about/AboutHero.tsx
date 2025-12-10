@@ -7,8 +7,8 @@ export function AboutHero() {
     <div
       className="relative mb-20 rounded-3xl overflow-hidden"
       style={{
-        padding: '48px 64px', // p-12 md:p-16
-        background: 'linear-gradient(to bottom right, rgba(31, 41, 55, 0.05), var(--color-background-primary), rgba(243, 244, 246, 0.1))',
+        padding: 'var(--spacing-stack-gap-xl) var(--spacing-stack-gap-2xl)', // 48px 64px
+        background: 'linear-gradient(to bottom right, var(--color-brand-primary-05), var(--color-background-primary), var(--color-background-tertiary-10))',
       }}
     >
       {/* Blur effects */}
@@ -17,7 +17,7 @@ export function AboutHero() {
         style={{
           width: '256px',
           height: '256px',
-          backgroundColor: 'rgba(31, 41, 55, 0.05)',
+          backgroundColor: 'var(--color-brand-primary-05)',
         }}
       />
       <div
@@ -25,16 +25,16 @@ export function AboutHero() {
         style={{
           width: '320px',
           height: '320px',
-          backgroundColor: 'rgba(243, 244, 246, 0.1)',
+          backgroundColor: 'var(--color-background-tertiary-10)',
         }}
       />
       
-      <div className="relative z-10" style={{ maxWidth: '768px' }}>
+      <div className="relative z-10" style={{ maxWidth: 'var(--spacing-container-max-width-md)' }}>
         <h2
           className="mb-4 tracking-tight"
           style={{
-            fontSize: 'clamp(30px, 5vw, 48px)',
-            lineHeight: '1.2',
+            fontSize: 'clamp(var(--typography-h2-subtle-size-mobile), 5vw, var(--typography-h2-subtle-size-desktop))', // 30px-48px responsive
+            lineHeight: 'var(--typography-h2-subtle-line-height-desktop)', // 1.2 equivalent
             fontWeight: '700',
             color: 'var(--color-text-primary)',
           }}
@@ -45,8 +45,8 @@ export function AboutHero() {
           className="text-xl"
           style={{
             color: 'var(--color-text-secondary)',
-            fontSize: '20px',
-            lineHeight: '1.5',
+            fontSize: 'var(--typography-body-large-size-desktop)', // 18px, closest to 20px
+            lineHeight: 'var(--typography-body-large-line-height-desktop)', // 28px/18px ≈ 1.56
           }}
         >
           Where design systems meet intelligent engineering.

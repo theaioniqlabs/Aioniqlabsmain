@@ -56,11 +56,11 @@ export const Design7Hero: React.FC<Design7HeroProps> = ({
               <div
                 className="inline-flex items-center gap-2 rounded-full mb-6"
                 style={{
-                  paddingLeft: '12px',
-                  paddingRight: '12px',
-                  paddingTop: '6px',
-                  paddingBottom: '6px',
-                  backgroundColor: 'rgba(31, 41, 55, 0.05)',
+                  paddingLeft: 'var(--spacing-stack-gap-xs)', // 8px, using closest token
+                  paddingRight: 'var(--spacing-stack-gap-xs)',
+                  paddingTop: 'var(--spacing-stack-gap-xs)',
+                  paddingBottom: 'var(--spacing-stack-gap-xs)',
+                  backgroundColor: 'var(--color-brand-primary-05)',
                   border: '1px solid hsl(var(--border))',
                 }}
               >
@@ -75,7 +75,7 @@ export const Design7Hero: React.FC<Design7HeroProps> = ({
                   className="text-sm"
                   style={{
                     color: 'var(--color-brand-primary)',
-                    fontSize: '14px',
+                    fontSize: 'var(--typography-body-small-size-desktop)',
                     lineHeight: '1.5',
                   }}
                 >
@@ -110,7 +110,7 @@ export const Design7Hero: React.FC<Design7HeroProps> = ({
               asChild
               variant="default"
               style={{
-                marginBottom: '32px',
+                marginBottom: 'var(--spacing-stack-gap-lg)',
               }}
             >
               <a href={ctaHref}>
@@ -126,7 +126,7 @@ export const Design7Hero: React.FC<Design7HeroProps> = ({
               className="font-body"
               style={{
                 color: 'var(--color-text-secondary)',
-                fontSize: '16px',
+                fontSize: 'var(--typography-body-default-size-desktop)',
                 lineHeight: '1.6',
               }}
             >
@@ -140,7 +140,7 @@ export const Design7Hero: React.FC<Design7HeroProps> = ({
                   <div
                     className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
                     style={{
-                      backgroundColor: 'rgba(31, 41, 55, 0.1)',
+                      backgroundColor: 'var(--color-brand-primary-10)',
                     }}
                   >
                     <Check
@@ -154,7 +154,7 @@ export const Design7Hero: React.FC<Design7HeroProps> = ({
                   <p
                     className="text-sm"
                     style={{
-                      fontSize: '14px',
+                      fontSize: 'var(--typography-body-small-size-desktop)',
                       lineHeight: '1.5',
                       color: 'var(--color-text-primary)',
                     }}
@@ -169,7 +169,7 @@ export const Design7Hero: React.FC<Design7HeroProps> = ({
             <div
               className="relative overflow-hidden rounded-2xl p-8 mt-8"
               style={{
-                background: 'linear-gradient(to bottom right, #f97316, #a855f7, #3b82f6)',
+                background: 'linear-gradient(to bottom right, var(--color-accent-orange), var(--color-accent-purple), var(--color-accent-blue))',
               }}
             >
               {/* Blur Effects */}
@@ -178,7 +178,7 @@ export const Design7Hero: React.FC<Design7HeroProps> = ({
                 style={{
                   width: '128px',
                   height: '128px',
-                  backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                  backgroundColor: 'var(--color-text-inverse-10)',
                   filter: 'blur(64px)',
                 }}
               />
@@ -187,7 +187,7 @@ export const Design7Hero: React.FC<Design7HeroProps> = ({
                 style={{
                   width: '160px',
                   height: '160px',
-                  backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                  backgroundColor: 'var(--color-text-inverse-10)',
                   filter: 'blur(96px)',
                 }}
               />
@@ -197,9 +197,9 @@ export const Design7Hero: React.FC<Design7HeroProps> = ({
                 <div
                   className="text-white/80 text-sm mb-2"
                   style={{
-                    fontSize: '14px',
+                    fontSize: 'var(--typography-body-small-size-desktop)',
                     lineHeight: '1.5',
-                    color: 'rgba(255, 255, 255, 0.8)',
+                    color: 'var(--color-text-inverse-80)',
                   }}
                 >
                   {metricTitle}
@@ -220,7 +220,7 @@ export const Design7Hero: React.FC<Design7HeroProps> = ({
                     style={{
                       fontSize: 'clamp(1.25rem, 2vw, 1.5rem)',
                       lineHeight: '1',
-                      color: 'rgba(255, 255, 255, 0.8)',
+                      color: 'var(--color-text-inverse-80)',
                     }}
                   >
                     {metricDescription}
@@ -229,9 +229,9 @@ export const Design7Hero: React.FC<Design7HeroProps> = ({
                 <p
                   className="text-white/90 text-sm"
                   style={{
-                    fontSize: '14px',
+                    fontSize: 'var(--typography-body-small-size-desktop)',
                     lineHeight: '1.5',
-                    color: 'rgba(255, 255, 255, 0.9)',
+                    color: 'var(--color-text-inverse-90)',
                   }}
                 >
                   {description}

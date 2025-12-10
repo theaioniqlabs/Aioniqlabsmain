@@ -9,15 +9,15 @@ export function AboutCTA() {
     <div
       className="border border-border rounded-2xl text-center"
       style={{
-        padding: '40px',
-        background: 'linear-gradient(to right, rgba(31, 41, 55, 0.05), var(--color-background-primary), rgba(243, 244, 246, 0.05))',
+        padding: 'var(--spacing-container-padding-tablet)',
+        background: 'linear-gradient(to right, var(--color-brand-primary-05), var(--color-background-primary), var(--color-background-tertiary-05))',
       }}
     >
       <p
         className="text-xl mb-6 max-w-2xl mx-auto"
         style={{
-          fontSize: '20px',
-          lineHeight: '1.5',
+          fontSize: 'var(--typography-body-large-size-desktop)', // 18px, closest to 20px
+          lineHeight: 'var(--typography-body-large-line-height-desktop)', // 28px/18px ≈ 1.56
           color: 'var(--color-text-primary)',
         }}
       >

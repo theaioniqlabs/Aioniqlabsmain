@@ -31,13 +31,13 @@ export function HowWeWorkSection() {
             key={index}
             className="bg-card border border-border rounded-2xl hover:border-primary/20 transition-colors"
             style={{
-              padding: '32px',
+              padding: 'var(--card-padding)',
             }}
           >
             <div
               className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4"
               style={{
-                backgroundColor: 'rgba(31, 41, 55, 0.1)',
+                backgroundColor: 'var(--color-brand-primary-10)',
               }}
             >
               <Icon
@@ -51,9 +51,9 @@ export function HowWeWorkSection() {
             <h4
               className="mb-3"
               style={{
-                fontSize: '20px',
-                fontWeight: '600',
-                lineHeight: '1.3',
+                fontSize: 'var(--typography-h4-size-desktop)', // 20px
+                fontWeight: 'var(--typography-h4-weight)',
+                lineHeight: 'var(--typography-h4-line-height-desktop)',
                 color: 'var(--color-text-primary)',
               }}
             >
@@ -63,8 +63,8 @@ export function HowWeWorkSection() {
               className="text-sm leading-relaxed"
               style={{
                 color: 'var(--color-text-secondary)',
-                fontSize: '14px',
-                lineHeight: '1.75',
+                fontSize: 'var(--typography-body-small-size-desktop)',
+                lineHeight: 'var(--typography-body-small-line-height)',
               }}
             >
               {service.description}

@@ -232,17 +232,38 @@
   --color-brand-primary: #1F2937;
   --color-brand-primary-dark: #1F2937;
   --color-brand-primary-light: #1F2937;
+  /* Brand Primary with Opacity */
+  --color-brand-primary-05: rgba(31, 41, 55, 0.05);
+  --color-brand-primary-10: rgba(31, 41, 55, 0.1);
+  --color-brand-primary-20: rgba(31, 41, 55, 0.2);
 
   /* Colors - Text */
   --color-text-primary: #1A1A1A;
   --color-text-secondary: #6B7280;
   --color-text-tertiary: #9CA3AF;
   --color-text-inverse: #FFFFFF;
+  /* Text Inverse (White) with Opacity */
+  --color-text-inverse-80: rgba(255, 255, 255, 0.8);
+  --color-text-inverse-90: rgba(255, 255, 255, 0.9);
+  --color-text-inverse-10: rgba(255, 255, 255, 0.1);
+  --color-text-inverse-50: rgba(255, 255, 255, 0.5);
+  --color-text-inverse-08: rgba(255, 255, 255, 0.08);
+  /* Text Primary (Black) with Opacity */
+  --color-text-primary-80: rgba(0, 0, 0, 0.8);
+  --color-text-primary-10: rgba(0, 0, 0, 0.1);
+  --color-text-primary-30: rgba(0, 0, 0, 0.3);
 
   /* Colors - Background */
   --color-background-primary: #FAFAFA;
   --color-background-secondary: #F9FAFB;
   --color-background-tertiary: #F3F4F6;
+  /* Background Tertiary with Opacity */
+  --color-background-tertiary-05: rgba(243, 244, 246, 0.05);
+  --color-background-tertiary-10: rgba(243, 244, 246, 0.1);
+  /* Gray Backgrounds */
+  --color-gray-light: #F3F4F6;
+  --color-gray-lighter: #eaeaea;
+  --color-gray-lightest: #f2f2f2;
   
   /* Colors - Card */
   --color-card-bg: #EEF0F2;
@@ -262,6 +283,15 @@
 
   /* Colors - Avatar */
   --color-avatar-placeholder: #FFDAB9;
+  /* Colors - Accent (for gradients) */
+  --color-accent-orange: #f97316;
+  --color-accent-purple: #a855f7;
+  --color-accent-blue: #3b82f6;
+  /* Colors - Testimonial */
+  --color-testimonial-border-active: #ACA0FB;
+  --color-testimonial-border-default: #E5E7EB;
+  /* Spacing - Banner Height */
+  --spacing-banner-height: 64px;
 
   /* Colors - Nav */
   --nav-overlay-bg: #1F2937;

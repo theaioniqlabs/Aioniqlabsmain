@@ -10,15 +10,15 @@ export function MissionVisionSection() {
       <div
         className="bg-card border border-border rounded-2xl"
         style={{
-          padding: '40px',
+          padding: 'var(--spacing-container-padding-tablet)',
         }}
       >
         <h3
           className="mb-4"
           style={{
-            fontSize: '24px',
-            fontWeight: '600',
-            lineHeight: '1.3',
+            fontSize: 'var(--typography-h3-size-desktop)', // 24px
+            fontWeight: 'var(--typography-h3-weight)',
+            lineHeight: 'var(--typography-h3-line-height-desktop)',
             color: 'var(--color-text-primary)',
           }}
         >
@@ -28,8 +28,8 @@ export function MissionVisionSection() {
           className="leading-relaxed"
           style={{
             color: 'var(--color-text-secondary)',
-            fontSize: '16px',
-            lineHeight: '1.75',
+            fontSize: 'var(--typography-body-default-size-desktop)',
+            lineHeight: 'var(--typography-body-default-line-height)',
           }}
         >
           To empower innovators with intelligent design systems that scale. We craft digital ecosystems that feel effortless, perform beautifully, and stand the test of time.
@@ -50,7 +50,7 @@ export function MissionVisionSection() {
         <div
           className="relative z-10"
           style={{
-            padding: '40px',
+            padding: 'var(--spacing-container-padding-tablet)',
           }}
         >
           <h3

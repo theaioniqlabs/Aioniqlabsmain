@@ -23,11 +23,11 @@ export const TextBanner: React.FC<TextBannerProps> = ({
     <section
       className={`w-full ${className}`}
       style={{
-        height: '64px', // h-16 - matches navigation height
+        height: 'var(--spacing-banner-height)', // 64px - matches navigation height
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#FFFFFF', // White background
+        backgroundColor: 'var(--color-text-inverse)', // White background
       }}
       role="banner"
       aria-label="Logo banner"

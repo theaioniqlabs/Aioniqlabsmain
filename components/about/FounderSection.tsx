@@ -24,15 +24,15 @@ export function FounderSection() {
         <div
           className="bg-card border border-border rounded-2xl flex-1"
           style={{
-            padding: '32px',
+            padding: 'var(--card-padding)',
           }}
         >
           <h3
             className="mb-4"
             style={{
-              fontSize: '24px',
-              fontWeight: '600',
-              lineHeight: '1.3',
+              fontSize: 'var(--typography-h3-size-desktop)', // 24px
+              fontWeight: 'var(--typography-h3-weight)',
+              lineHeight: 'var(--typography-h3-line-height-desktop)',
               color: 'var(--color-text-primary)',
             }}
           >
@@ -42,8 +42,8 @@ export function FounderSection() {
             className="leading-relaxed"
             style={{
               color: 'var(--color-text-secondary)',
-              fontSize: '16px',
-              lineHeight: '1.75',
+              fontSize: 'var(--typography-body-default-size-desktop)',
+              lineHeight: 'var(--typography-body-default-line-height)',
             }}
           >
             Founded by a designer-engineer hybrid with a decade of experience building products at the intersection of AI and human-centered design. AIONIQ Labs emerged from a vision to bridge the gap between technical excellence and thoughtful design systems.
@@ -53,16 +53,16 @@ export function FounderSection() {
         <div
           className="border border-primary/10 rounded-2xl flex-1"
           style={{
-            padding: '32px',
-            backgroundColor: 'rgba(31, 41, 55, 0.05)',
+            padding: 'var(--card-padding)',
+            backgroundColor: 'var(--color-brand-primary-05)',
           }}
         >
           <h3
             className="mb-4"
             style={{
-              fontSize: '24px',
-              fontWeight: '600',
-              lineHeight: '1.3',
+              fontSize: 'var(--typography-h3-size-desktop)', // 24px
+              fontWeight: 'var(--typography-h3-weight)',
+              lineHeight: 'var(--typography-h3-line-height-desktop)',
               color: 'var(--color-brand-primary)',
             }}
           >
@@ -72,8 +72,8 @@ export function FounderSection() {
             className="leading-relaxed"
             style={{
               color: 'var(--color-text-secondary)',
-              fontSize: '16px',
-              lineHeight: '1.75',
+              fontSize: 'var(--typography-body-default-size-desktop)',
+              lineHeight: 'var(--typography-body-default-line-height)',
             }}
           >
             We believe AI should amplify human creativity, not replace it. Every system we build prioritizes clarity, accessibility, and intuitive interaction.

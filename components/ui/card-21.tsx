@@ -26,12 +26,10 @@ const DestinationCard = React.forwardRef<HTMLDivElement, DestinationCardProps>(
         className={cn("group w-full h-full", className)}
         {...props}
       >
-        <a
-          href={href}
+        <div
           className="relative block w-full h-full rounded-2xl overflow-hidden shadow-lg 
                      transition-all duration-500 ease-in-out 
                      group-hover:scale-105 group-hover:shadow-[0_0_60px_-15px_hsl(var(--theme-color)/0.6)]"
-          aria-label={`Explore details for ${location}`}
           style={{
             boxShadow: `0 0 40px -15px hsl(var(--theme-color) / 0.5)`
           }}
@@ -62,22 +60,27 @@ const DestinationCard = React.forwardRef<HTMLDivElement, DestinationCardProps>(
 
             {/* Explore Button */}
             <Button
+              asChild
               variant="secondary"
               className="w-auto self-start mt-8 flex items-center gap-2"
               style={{
                 marginTop: 'var(--spacing-stack-gap-md)',
               }}
-              onClick={(e) => {
-                e.stopPropagation()
-                e.preventDefault()
-                window.location.href = href
-              }}
             >
-              <span>Explore Now</span>
-              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              <a 
+                href={href}
+                aria-label={`Explore details for ${location}`}
+                onClick={(e) => {
+                  e.stopPropagation()
+                  // Allow normal anchor navigation
+                }}
+              >
+                <span>Explore Now</span>
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </a>
             </Button>
           </div>
-        </a>
+        </div>
       </div>
     );
   }

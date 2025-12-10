@@ -34,7 +34,7 @@ export const TeamGrid: React.FC = () => {
           </div>
 
           {/* Card 2: Sliding Banners */}
-          <div className="lg:col-span-2 rounded-3xl min-h-[240px] relative overflow-hidden" style={{ backgroundColor: '#eaeaea' }}>
+          <div className="lg:col-span-2 rounded-3xl min-h-[240px] relative overflow-hidden" style={{ backgroundColor: 'var(--color-gray-lighter)' }}>
             <Banner
               images={[
                 '/assets/banners/banner-ceramix.png',
@@ -71,7 +71,7 @@ export const TeamGrid: React.FC = () => {
           </div>
 
           {/* Card 6: AIONIQ Services Card - Design 11 */}
-          <div className="lg:col-span-2 rounded-3xl p-6 flex flex-col justify-between min-h-[240px] group hover:opacity-90 transition-all duration-300" style={{ backgroundColor: '#f2f2f2' }}>
+          <div className="lg:col-span-2 rounded-3xl p-6 flex flex-col justify-between min-h-[240px] group hover:opacity-90 transition-all duration-300" style={{ backgroundColor: 'var(--color-gray-lightest)' }}>
             <div>
               <h4 className="mb-4 text-black" style={{ fontSize: 'var(--typography-h4-size-desktop)', fontWeight: 'var(--typography-h4-weight)' }}>
                 AIONIQ Services
@@ -108,7 +108,7 @@ export const TeamGrid: React.FC = () => {
                   className="absolute inset-0 opacity-20"
                   style={{
                     backgroundImage:
-                      'repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0, 0, 0, 0.3) 10px, rgba(0, 0, 0, 0.3) 20px)',
+                      `repeating-linear-gradient(45deg, transparent, transparent 10px, var(--color-text-primary-30) 10px, var(--color-text-primary-30) 20px)`,
                   }}
                 ></div>
 

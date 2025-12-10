@@ -22,7 +22,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = ({
   className = '',
 }) => {
   const avatarSize = size === 'default' ? 48 : 40
-  const avatarSizePx = `${avatarSize}px`
+  const avatarSizePx = size === 'default' ? 'var(--spacing-avatar-size-default)' : 'var(--spacing-avatar-size-small)'
   const [imageErrors, setImageErrors] = React.useState<Set<number>>(new Set())
 
   const generateInitials = (name: string): string => {
@@ -37,7 +37,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = ({
   const generatePlaceholder = (alt: string, index: number): { color: string; isVar: boolean } => {
     // Use sampled color from screenshot for third avatar, otherwise generate based on alt
     if (index === 2) {
-      return { color: '#FFDAB9', isVar: false } // Sampled from screenshot
+      return { color: 'var(--color-avatar-placeholder)', isVar: true } // Sampled from screenshot
     }
     // Generate a simple gradient based on the alt text for other avatars
     const hash = alt.split('').reduce((acc, char) => {
@@ -92,9 +92,9 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = ({
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  color: '#1A1A1A',
+                  color: 'var(--color-text-primary)',
                   fontWeight: 600,
-                  fontSize: `${avatarSize * 0.4}px`,
+                  fontSize: size === 'default' ? '19.2px' : '16px', // 48*0.4 = 19.2px, 40*0.4 = 16px
                 }}
               >
                 {initials}

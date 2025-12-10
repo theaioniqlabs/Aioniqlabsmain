@@ -198,7 +198,7 @@ export const ProductFeatures: React.FC<ProductFeaturesProps> = ({
                     fontSize: 'var(--typography-body-small-size-desktop)',
                     lineHeight: 'var(--typography-body-small-line-height)',
                     fontWeight: 'var(--typography-body-small-weight)',
-                    color: '#f97316', // orange-500
+                    color: 'var(--color-accent-orange)',
                   }}
                 >
                   {feature.data?.percentageSubtitle}
@@ -372,7 +372,7 @@ export const ProductFeatures: React.FC<ProductFeaturesProps> = ({
         // Special case: Team's Productivity card with white text
         if (feature.id === 'productivity') {
           return (
-            <div key={feature.id} className={gridClasses.join(' ')} style={{ ...cardStyle, padding: '0', overflow: 'hidden', backgroundColor: '#1F2937' }}>
+            <div key={feature.id} className={gridClasses.join(' ')} style={{ ...cardStyle, padding: '0', overflow: 'hidden', backgroundColor: 'var(--color-brand-primary)' }}>
               <div style={{ padding: 'var(--card-padding)', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', width: '100%' }}>
                 <div>
                   <h3
@@ -381,7 +381,7 @@ export const ProductFeatures: React.FC<ProductFeaturesProps> = ({
                       fontSize: 'var(--typography-h4-size-desktop)',
                       lineHeight: 'var(--typography-h4-line-height-desktop)',
                       fontWeight: 'var(--typography-h4-weight)',
-                      color: '#ffffff',
+                      color: 'var(--color-text-inverse)',
                     }}
                   >
                     {feature.title}
@@ -392,7 +392,7 @@ export const ProductFeatures: React.FC<ProductFeaturesProps> = ({
                       fontSize: 'var(--typography-body-size-desktop)',
                       lineHeight: 'var(--typography-body-line-height-desktop)',
                       fontWeight: 'var(--typography-body-weight)',
-                      color: '#ffffff',
+                      color: 'var(--color-text-inverse)',
                     }}
                   >
                     {feature.description}
@@ -455,20 +455,40 @@ export const ProductFeatures: React.FC<ProductFeaturesProps> = ({
               </div>
               {feature.action && (
                 <Button
-                  asChild
+                  asChild={!!feature.action.href}
                   variant="ghost"
                   size="sm"
                   className="mt-6 w-fit flex items-center gap-2"
                   style={{
                     marginTop: 'var(--spacing-stack-gap-md)',
                   }}
+                  onClick={!feature.action.href ? feature.action.onClick : undefined}
                 >
-                  <a href={feature.action.href} onClick={feature.action.onClick}>
-                    {feature.action.label === 'Configure' && (
-                      <Settings className="w-4 h-4 text-orange-500" aria-hidden="true" />
-                    )}
-                    {feature.action.label}
-                  </a>
+                  {feature.action.href ? (
+                    <a 
+                      href={feature.action.href} 
+                      onClick={(e) => {
+                        // If onClick is provided, call it but allow navigation
+                        if (feature.action?.onClick) {
+                          feature.action.onClick()
+                        }
+                        // If onClick prevents default, respect that
+                        // Otherwise, allow normal anchor navigation
+                      }}
+                    >
+                      {feature.action.label === 'Configure' && (
+                        <Settings className="w-4 h-4 text-orange-500" aria-hidden="true" />
+                      )}
+                      {feature.action.label}
+                    </a>
+                  ) : (
+                    <>
+                      {feature.action.label === 'Configure' && (
+                        <Settings className="w-4 h-4 text-orange-500" aria-hidden="true" />
+                      )}
+                      {feature.action.label}
+                    </>
+                  )}
                 </Button>
               )}
             </div>

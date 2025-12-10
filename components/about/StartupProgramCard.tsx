@@ -28,8 +28,8 @@ export function StartupProgramCard({
     <article
       className={`card-item ${className}`}
       style={{
-        background: 'linear-gradient(135deg, rgba(31, 41, 55, 0.05) 0%, rgba(31, 41, 55, 0.02) 100%)',
-        border: '1px solid rgba(31, 41, 55, 0.1)',
+        background: 'linear-gradient(135deg, var(--color-brand-primary-05) 0%, rgba(31, 41, 55, 0.02) 100%)', /* 0.02 opacity is edge case, keeping as-is */
+        border: '1px solid var(--color-brand-primary-10)',
       }}
     >
       <div className="flex flex-col gap-6">

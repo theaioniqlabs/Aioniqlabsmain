@@ -116,6 +116,7 @@ export const OnboardingChecklist = ({
           <Dialog>
             <DialogTrigger asChild>
               <div>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={videoThumbnailUrl}
                   alt="Video guide thumbnail"

@@ -17,15 +17,15 @@ export function StatsGrid() {
           key={index}
           className="bg-card border border-border rounded-2xl text-center"
           style={{
-            padding: '32px',
+            padding: 'var(--card-padding)',
           }}
         >
           <div
             className="mb-2"
             style={{
-              fontSize: '48px',
+              fontSize: 'var(--typography-headline-size-mobile)', // 40px on mobile, 48px would be custom
               lineHeight: '1.2',
-              fontWeight: '700',
+              fontWeight: 'var(--typography-headline-weight)',
               color: 'var(--color-text-primary)',
             }}
           >
@@ -35,8 +35,8 @@ export function StatsGrid() {
             className="text-sm"
             style={{
               color: 'var(--color-text-secondary)',
-              fontSize: '14px',
-              lineHeight: '1.5',
+              fontSize: 'var(--typography-body-small-size-desktop)',
+              lineHeight: 'var(--typography-body-small-line-height)',
             }}
           >
             {stat.label}

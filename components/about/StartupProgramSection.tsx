@@ -11,8 +11,8 @@ export function StartupProgramSection() {
       <div
         className="lg:col-span-2 relative border border-primary/20 rounded-2xl overflow-hidden"
         style={{
-          padding: '40px',
-          background: 'linear-gradient(to bottom right, rgba(31, 41, 55, 0.1), rgba(31, 41, 55, 0.05), rgba(243, 244, 246, 0.1))',
+          padding: 'var(--spacing-container-padding-tablet)',
+          background: 'linear-gradient(to bottom right, var(--color-brand-primary-10), var(--color-brand-primary-05), var(--color-background-tertiary-10))',
         }}
       >
         {/* Blur effects */}
@@ -21,7 +21,7 @@ export function StartupProgramSection() {
           style={{
             width: '192px',
             height: '192px',
-            backgroundColor: 'rgba(31, 41, 55, 0.1)',
+            backgroundColor: 'var(--color-brand-primary-10)',
           }}
         />
         <div
@@ -29,7 +29,7 @@ export function StartupProgramSection() {
           style={{
             width: '256px',
             height: '256px',
-            backgroundColor: 'rgba(243, 244, 246, 0.1)',
+            backgroundColor: 'var(--color-background-tertiary-10)',
           }}
         />
 
@@ -37,9 +37,9 @@ export function StartupProgramSection() {
           <h3
             className="mb-4"
             style={{
-              fontSize: '24px',
-              fontWeight: '600',
-              lineHeight: '1.3',
+              fontSize: 'var(--typography-h3-size-desktop)', // 24px
+              fontWeight: 'var(--typography-h3-weight)',
+              lineHeight: 'var(--typography-h3-line-height-desktop)',
               color: 'var(--color-text-primary)',
             }}
           >
@@ -49,8 +49,8 @@ export function StartupProgramSection() {
             className="leading-relaxed mb-6"
             style={{
               color: 'var(--color-text-secondary)',
-              fontSize: '16px',
-              lineHeight: '1.75',
+              fontSize: 'var(--typography-body-default-size-desktop)',
+              lineHeight: 'var(--typography-body-default-line-height)',
             }}
           >
             We support early-stage founders with AI-powered product design, rapid prototyping, and system architecture guidance. Get access to our design systems, technical mentorship, and strategic consulting to accelerate your product journey.
@@ -61,11 +61,11 @@ export function StartupProgramSection() {
                 key={index}
                 className="text-sm rounded-full border"
                 style={{
-                  padding: '8px 16px',
-                  backgroundColor: 'rgba(255, 255, 255, 0.5)',
+                  padding: 'var(--spacing-badge-padding-y) var(--spacing-badge-padding-x)',
+                  backgroundColor: 'var(--color-text-inverse-50)',
                   borderColor: 'hsl(var(--border))',
-                  fontSize: '14px',
-                  lineHeight: '1.5',
+                  fontSize: 'var(--typography-body-small-size-desktop)',
+                  lineHeight: 'var(--typography-body-small-line-height)',
                 }}
               >
                 {tag}
@@ -80,13 +80,13 @@ export function StartupProgramSection() {
         href="#"
         className="bg-card border border-border rounded-2xl flex flex-col items-center justify-center text-center hover:border-primary/40 transition-colors group"
         style={{
-          padding: '40px',
+          padding: 'var(--spacing-container-padding-tablet)',
         }}
       >
         <div
           className="w-16 h-16 mb-4 rounded-full flex items-center justify-center group-hover:bg-primary/20 transition-colors"
           style={{
-            backgroundColor: 'rgba(31, 41, 55, 0.1)',
+            backgroundColor: 'var(--color-brand-primary-10)',
           }}
         >
           <ExternalLink
@@ -100,9 +100,9 @@ export function StartupProgramSection() {
         <h4
           className="mb-2"
           style={{
-            fontSize: '20px',
-            fontWeight: '600',
-            lineHeight: '1.3',
+            fontSize: 'var(--typography-h4-size-desktop)', // 20px
+            fontWeight: 'var(--typography-h4-weight)',
+            lineHeight: 'var(--typography-h4-line-height-desktop)',
             color: 'var(--color-text-primary)',
           }}
         >

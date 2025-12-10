@@ -163,7 +163,7 @@ export const Banner: React.FC<BannerProps> = ({
             key={`placeholder-${index}`}
             className="relative flex-shrink-0 w-full h-full"
             style={{
-              backgroundColor: '#9CA3AF', // gray-400
+              backgroundColor: 'var(--color-text-tertiary)', // gray-400
               minWidth: '100%',
             }}
             aria-hidden={index !== currentIndex}
@@ -182,7 +182,7 @@ export const Banner: React.FC<BannerProps> = ({
             src={imageSrc}
             alt={`${alt} - Slide ${index + 1}`}
             fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 1120px"
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, var(--spacing-container-max-width-xl)"
             className="object-cover"
             priority={priority && index === 0}
           />

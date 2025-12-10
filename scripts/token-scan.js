@@ -96,52 +96,77 @@ function scanFile(filePath, tokens) {
     typography: [],
     radii: [],
   }
+  
+  // Count CSS variable usage (token usage)
+  const cssVarPattern = /var\(--[^)]+\)/g
+  const cssVarMatches = content.match(cssVarPattern) || []
+  const tokenUsageCount = cssVarMatches.length
 
-  // Scan for colors
+  // Scan for colors (exclude CSS variables)
   SCAN_PATTERNS.colors.forEach(pattern => {
     const matches = content.matchAll(pattern)
     for (const match of matches) {
-      findings.colors.push({
-        value: match[0],
-        line: content.substring(0, match.index).split('\n').length,
-      })
+      // Skip if this is inside a CSS variable or var() call
+      const beforeMatch = content.substring(Math.max(0, match.index - 20), match.index)
+      const afterMatch = content.substring(match.index, Math.min(content.length, match.index + match[0].length + 20))
+      if (!beforeMatch.includes('var(') && !afterMatch.includes(')')) {
+        findings.colors.push({
+          value: match[0],
+          line: content.substring(0, match.index).split('\n').length,
+        })
+      }
     }
   })
 
-  // Scan for spacing
+  // Scan for spacing (exclude CSS variables)
   SCAN_PATTERNS.spacing.forEach(pattern => {
     const matches = content.matchAll(pattern)
     for (const match of matches) {
-      findings.spacing.push({
-        value: match[0],
-        line: content.substring(0, match.index).split('\n').length,
-      })
+      // Skip if this is inside a CSS variable or var() call
+      const beforeMatch = content.substring(Math.max(0, match.index - 20), match.index)
+      const afterMatch = content.substring(match.index, Math.min(content.length, match.index + match[0].length + 20))
+      if (!beforeMatch.includes('var(') && !afterMatch.includes(')')) {
+        findings.spacing.push({
+          value: match[0],
+          line: content.substring(0, match.index).split('\n').length,
+        })
+      }
     }
   })
 
-  // Scan for typography
+  // Scan for typography (exclude CSS variables)
   SCAN_PATTERNS.typography.forEach(pattern => {
     const matches = content.matchAll(pattern)
     for (const match of matches) {
-      findings.typography.push({
-        value: match[0],
-        line: content.substring(0, match.index).split('\n').length,
-      })
+      // Skip if this is inside a CSS variable or var() call
+      const beforeMatch = content.substring(Math.max(0, match.index - 20), match.index)
+      const afterMatch = content.substring(match.index, Math.min(content.length, match.index + match[0].length + 20))
+      if (!beforeMatch.includes('var(') && !afterMatch.includes(')')) {
+        findings.typography.push({
+          value: match[0],
+          line: content.substring(0, match.index).split('\n').length,
+        })
+      }
     }
   })
 
-  // Scan for radii
+  // Scan for radii (exclude CSS variables)
   SCAN_PATTERNS.radii.forEach(pattern => {
     const matches = content.matchAll(pattern)
     for (const match of matches) {
-      findings.radii.push({
-        value: match[0],
-        line: content.substring(0, match.index).split('\n').length,
-      })
+      // Skip if this is inside a CSS variable or var() call
+      const beforeMatch = content.substring(Math.max(0, match.index - 20), match.index)
+      const afterMatch = content.substring(match.index, Math.min(content.length, match.index + match[0].length + 20))
+      if (!beforeMatch.includes('var(') && !afterMatch.includes(')')) {
+        findings.radii.push({
+          value: match[0],
+          line: content.substring(0, match.index).split('\n').length,
+        })
+      }
     }
   })
 
-  return findings
+  return { ...findings, tokenUsageCount }
 }
 
 function getAllFiles(dir, fileList = []) {
@@ -189,14 +214,20 @@ function main() {
   }
 
   const fileFindings = {}
+  let totalTokenUsage = 0
 
   files.forEach(file => {
     const findings = scanFile(file, tokens)
     const relativePath = path.relative(process.cwd(), file)
+    
+    // Count token usage
+    if (findings.tokenUsageCount) {
+      totalTokenUsage += findings.tokenUsageCount
+    }
 
-    // Aggregate findings
+    // Aggregate findings (exclude tokenUsageCount)
     Object.keys(allFindings).forEach(key => {
-      if (findings[key].length > 0) {
+      if (findings[key] && findings[key].length > 0) {
         allFindings[key].push(...findings[key].map(f => ({
           ...f,
           file: relativePath,
@@ -204,29 +235,34 @@ function main() {
       }
     })
 
-    if (Object.values(findings).some(arr => arr.length > 0)) {
+    if (Object.values(findings).some((arr, idx) => {
+      const key = Object.keys(findings)[idx]
+      return key !== 'tokenUsageCount' && Array.isArray(arr) && arr.length > 0
+    })) {
       fileFindings[relativePath] = findings
     }
   })
 
   // Calculate coverage
-  const totalDesignValues = 
+  const totalRawValues = 
     allFindings.colors.length +
     allFindings.spacing.length +
     allFindings.typography.length +
     allFindings.radii.length
-
-  // Simple heuristic: if value matches a token, it's covered
-  // This is a simplified check - in reality, you'd want more sophisticated matching
-  const coveredValues = 0 // Placeholder - would need token value matching logic
+  
+  const totalDesignValues = totalRawValues + totalTokenUsage
+  
+  // Coverage = token usage / total design values
   const coveragePercent = totalDesignValues > 0 
-    ? Math.round((coveredValues / totalDesignValues) * 100) 
+    ? Math.round((totalTokenUsage / totalDesignValues) * 100) 
     : 100
 
   const report = {
     timestamp: new Date().toISOString(),
     coverage_percent: coveragePercent,
     total_design_values: totalDesignValues,
+    total_token_usage: totalTokenUsage,
+    total_raw_literals: totalRawValues,
     tokens_found: Object.keys(flatTokens).length,
     raw_literals: {
       colors: allFindings.colors.slice(0, 200), // Top 200 samples

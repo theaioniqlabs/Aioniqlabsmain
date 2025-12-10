@@ -79,7 +79,7 @@ export function Footer({
         backgroundColor: 'var(--color-background-primary)',
         paddingTop: 'var(--spacing-section-vertical-desktop)',
         paddingBottom: 'var(--spacing-section-vertical-desktop)',
-        background: 'radial-gradient(35% 128px at 50% 0%, rgba(255, 255, 255, 0.08), transparent)',
+        background: 'radial-gradient(35% 128px at 50% 0%, var(--color-text-inverse-08), transparent)',
         minHeight: '300px',
         position: 'relative',
         zIndex: 1,
@@ -182,7 +182,7 @@ export function Footer({
                               }}
                             >
                               {Icon && (
-                                <span style={{ marginRight: 'var(--spacing-stack-gap-xs)', display: 'inline-flex', width: '16px', height: '16px' }}>
+                                <span style={{ marginRight: 'var(--spacing-stack-gap-xs)', display: 'inline-flex', width: 'var(--icon-size-small)', height: 'var(--icon-size-small)' }}>
                                   <Icon className="w-4 h-4" />
                                 </span>
                               )}

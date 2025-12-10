@@ -86,7 +86,7 @@ export const Icon: React.FC<IconProps> = ({
       style={{
         width: `var(--icon-size-${size})`,
         height: `var(--icon-size-${size})`,
-        color: 'rgba(0, 0, 0, 0.8)',
+        color: 'var(--color-text-primary-80)',
       }}
       aria-hidden="true"
     >

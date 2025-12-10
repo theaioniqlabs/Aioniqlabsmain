@@ -15,7 +15,7 @@ export function StatCard({ value, label, supportingText, className = '' }: StatC
   return (
     <article className={`card-item ${className}`}>
       <div className="flex flex-col gap-2">
-        <div className="text-h2 font-heading" style={{ fontSize: '48px', lineHeight: '56px' }}>
+        <div className="text-h2 font-heading" style={{ fontSize: 'var(--typography-headline-size-mobile)', lineHeight: 'var(--typography-headline-line-height-mobile)' }}>
           {value}
         </div>
         <div className="text-body-small font-body" style={{ color: 'var(--color-text-secondary)' }}>{label}</div>

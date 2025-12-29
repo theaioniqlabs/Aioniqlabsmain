@@ -61,12 +61,12 @@ export function Header() {
 
 	return (
 		<header
-			className={cn('sticky top-0 z-50 w-full border-b border-transparent', {
+			className={cn('sticky top-0 z-50 w-full border-b border-transparent overflow-visible', {
 				'bg-background/95 supports-[backdrop-filter]:bg-background/50 border-border backdrop-blur-lg':
 					scrolled,
 			})}
 		>
-			<nav className="mx-auto flex h-14 w-full max-w-5xl items-center justify-center px-4 relative">
+			<nav className="mx-auto flex h-14 w-full max-w-5xl items-center justify-center px-4 relative overflow-visible">
 				<a href="/" className="absolute left-4 hover:opacity-70 transition-opacity">
 					<Image
 						src="/assets/aioniq-logo.svg"
@@ -82,7 +82,7 @@ export function Header() {
 						<NavigationMenuItem>
 							<NavigationMenuTrigger className="bg-transparent">Explore</NavigationMenuTrigger>
 							<NavigationMenuContent className="bg-background p-1 pr-1.5">
-								<ul className="bg-popover grid min-w-[500px] grid-cols-2 gap-2 rounded-md border p-2 shadow">
+								<ul className="bg-popover grid min-w-[500px] grid-cols-2 gap-2 rounded-md border p-2 shadow list-none overflow-visible">
 									{productLinks.map((item, i) => (
 										<li key={i}>
 											<ListItem {...item} />
@@ -103,14 +103,14 @@ export function Header() {
 							<NavigationMenuTrigger className="bg-transparent">Company</NavigationMenuTrigger>
 							<NavigationMenuContent className="bg-background p-1 pr-1.5 pb-1.5">
 								<div className="grid min-w-[500px] grid-cols-2 gap-2">
-									<ul className="bg-popover space-y-2 rounded-md border p-2 shadow">
+									<ul className="bg-popover space-y-2 rounded-md border p-2 shadow list-none overflow-visible">
 										{companyLinks.map((item, i) => (
 											<li key={i}>
 												<ListItem {...item} />
 											</li>
 										))}
 									</ul>
-									<ul className="space-y-2 p-3">
+									<ul className="space-y-2 p-3 list-none">
 										{companyLinks2.map((item, i) => (
 											<li key={i}>
 												<NavigationMenuLink
@@ -145,23 +145,25 @@ export function Header() {
 					<MenuToggleIcon open={open} className="size-5" duration={300} />
 				</Button>
 			</nav>
-			<MobileMenu open={open} className="flex flex-col gap-2 overflow-y-auto">
-				<NavigationMenu className="max-w-full">
-					<div className="flex w-full flex-col gap-y-2">
-						<span className="text-sm">Explore</span>
-						{productLinks.map((link) => (
-							<ListItem key={link.title} {...link} />
-						))}
-						<span className="text-sm">Company</span>
-						{companyLinks.map((link) => (
-							<ListItem key={link.title} {...link} />
-						))}
-						{companyLinks2.map((link) => (
-							<ListItem key={link.title} {...link} />
-						))}
-					</div>
-				</NavigationMenu>
-			</MobileMenu>
+			{open && (
+				<MobileMenu open={open} className="flex flex-col gap-2 overflow-y-auto">
+					<NavigationMenu className="max-w-full">
+						<div className="flex w-full flex-col gap-y-2">
+							<span className="text-sm">Explore</span>
+							{productLinks.map((link) => (
+								<ListItem key={link.title} {...link} />
+							))}
+							<span className="text-sm">Company</span>
+							{companyLinks.map((link) => (
+								<ListItem key={link.title} {...link} />
+							))}
+							{companyLinks2.map((link) => (
+								<ListItem key={link.title} {...link} />
+							))}
+						</div>
+					</NavigationMenu>
+				</MobileMenu>
+			)}
 		</header>
 	);
 }
@@ -171,7 +173,16 @@ type MobileMenuProps = React.ComponentProps<'div'> & {
 };
 
 function MobileMenu({ open, children, className, ...props }: MobileMenuProps) {
-	if (!open || typeof window === 'undefined') return null;
+	const [mounted, setMounted] = React.useState(false);
+
+	React.useEffect(() => {
+		setMounted(true);
+	}, []);
+
+	// Only render portal after client-side hydration and when open
+	if (!mounted || typeof window === 'undefined' || !open) {
+		return null;
+	}
 
 	return createPortal(
 		<div
@@ -182,7 +193,7 @@ function MobileMenu({ open, children, className, ...props }: MobileMenuProps) {
 			)}
 		>
 			<div
-				data-slot={open ? 'open' : 'closed'}
+				data-slot="open"
 				className={cn(
 					'data-[slot=open]:animate-in data-[slot=open]:zoom-in-97 ease-out',
 					'size-full p-4',

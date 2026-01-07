@@ -29,7 +29,7 @@ export default function RootLayout({
       <body>
         <ThemeProvider>
           <Header />
-          <div className="pt-[5px] pb-12 lg:pt-[5px] lg:pb-0">
+          <div className="pt-[57px] pb-12 lg:pt-[57px] lg:pb-0">
             {children}
           </div>
           <Footer />

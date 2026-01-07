@@ -44,7 +44,13 @@ export default function HeroSection02() {
         ))}
       </div>
 
-      <PageContainer mode="visual" className="relative z-20 w-full flex items-center justify-center min-h-[70vh]">
+      <PageContainer 
+        mode="visual" 
+        className="relative z-20 w-full flex items-center justify-center min-h-[70vh]"
+        style={{
+          boxSizing: 'content-box',
+        }}
+      >
         <div className="text-center max-w-[700px] space-y-6 py-24 relative z-20 w-full">
           <motion.h1
             initial={false}

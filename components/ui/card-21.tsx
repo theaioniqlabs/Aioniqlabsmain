@@ -28,7 +28,7 @@ const DestinationCard = React.forwardRef<HTMLDivElement, DestinationCardProps>(
       >
         <div
           className="relative block w-full h-full rounded-2xl overflow-hidden shadow-lg 
-                     transition-all duration-500 ease-in-out 
+                     transition-all duration-200 ease-in-out 
                      group-hover:scale-105"
           style={{
             // @ts-ignore - CSS custom properties are valid
@@ -39,7 +39,7 @@ const DestinationCard = React.forwardRef<HTMLDivElement, DestinationCardProps>(
           {/* Background Image with Parallax Zoom */}
           <div
             className="absolute inset-0 bg-cover bg-center 
-                       transition-transform duration-500 ease-in-out group-hover:scale-110"
+                       transition-transform duration-200 ease-in-out group-hover:scale-110"
             style={{ backgroundImage: `url(${imageUrl})` }}
           />
 

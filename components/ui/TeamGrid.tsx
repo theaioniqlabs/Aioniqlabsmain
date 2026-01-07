@@ -1,9 +1,168 @@
 'use client'
 
-import React from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { ArrowUpRight, Globe, MapPin, Phone } from 'lucide-react'
 import { PageContainer } from '@/components/ui/PageContainer'
-import { Banner } from '@/components/ui/Banner'
+
+// CardSlider Component - Sliding carousel for mobile, side-by-side for desktop
+const CardSlider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [isDragging, setIsDragging] = useState(false)
+  const [dragStartX, setDragStartX] = useState(0)
+  const [dragOffset, setDragOffset] = useState(0)
+  const [isPaused, setIsPaused] = useState(false)
+  const containerRef = useRef<HTMLDivElement>(null)
+  const cards = React.Children.toArray(children)
+  const autoPlayInterval = 4000 // 4 seconds for slow auto-slide
+
+  // Auto-play functionality
+  useEffect(() => {
+    if (cards.length <= 1 || isPaused) return
+
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % cards.length)
+    }, autoPlayInterval)
+
+    return () => clearInterval(interval)
+  }, [cards.length, isPaused])
+
+  // Resume auto-play after pause
+  useEffect(() => {
+    if (!isPaused) return
+
+    const timer = setTimeout(() => {
+      setIsPaused(false)
+    }, 8000) // Resume after 8 seconds
+
+    return () => clearTimeout(timer)
+  }, [isPaused])
+
+  // Touch handlers for swipe
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setIsDragging(true)
+    setDragStartX(e.touches[0].clientX)
+    setIsPaused(true)
+  }
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isDragging) return
+    const currentX = e.touches[0].clientX
+    const diff = currentX - dragStartX
+    setDragOffset(diff)
+  }
+
+  const handleTouchEnd = () => {
+    if (!isDragging) return
+    
+    const threshold = 50 // Minimum swipe distance
+    if (Math.abs(dragOffset) > threshold) {
+      if (dragOffset > 0 && currentIndex > 0) {
+        setCurrentIndex(currentIndex - 1)
+      } else if (dragOffset < 0 && currentIndex < cards.length - 1) {
+        setCurrentIndex(currentIndex + 1)
+      }
+    }
+    
+    setIsDragging(false)
+    setDragOffset(0)
+  }
+
+  // Mouse drag handlers
+  const handleMouseDown = (e: React.MouseEvent) => {
+    setIsDragging(true)
+    setDragStartX(e.clientX)
+    setIsPaused(true)
+  }
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging) return
+    const currentX = e.clientX
+    const diff = currentX - dragStartX
+    setDragOffset(diff)
+  }
+
+  const handleMouseUp = () => {
+    if (!isDragging) return
+    
+    const threshold = 50
+    if (Math.abs(dragOffset) > threshold) {
+      if (dragOffset > 0 && currentIndex > 0) {
+        setCurrentIndex(currentIndex - 1)
+      } else if (dragOffset < 0 && currentIndex < cards.length - 1) {
+        setCurrentIndex(currentIndex + 1)
+      }
+    }
+    
+    setIsDragging(false)
+    setDragOffset(0)
+  }
+
+  // Calculate transform
+  const transformX = -(currentIndex * 100) + (dragOffset / (containerRef.current?.offsetWidth || 1)) * 100
+
+  return (
+    <div className="lg:col-span-2">
+      {/* Desktop: Side by side */}
+      <div className="hidden lg:flex lg:flex-row" style={{ gap: 'var(--spacing-5)' }}>
+        {cards}
+      </div>
+
+      {/* Mobile/Tablet: Sliding carousel */}
+      <div
+        ref={containerRef}
+        className="lg:hidden relative w-full overflow-hidden"
+        style={{
+          borderRadius: 'var(--radii-card-default)',
+          cursor: isDragging ? 'grabbing' : 'grab',
+          userSelect: 'none',
+        }}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onMouseUp={handleMouseUp}
+        onMouseLeave={handleMouseUp}
+      >
+        <div
+          className="flex w-full"
+          style={{
+            transform: `translateX(${transformX}%)`,
+            transition: isDragging ? 'none' : 'transform 0.5s ease-in-out',
+          }}
+        >
+          {cards.map((card, index) => (
+            <div key={index} className="min-w-full flex-shrink-0">
+              {card}
+            </div>
+          ))}
+        </div>
+
+        {/* Navigation dots */}
+        {cards.length > 1 && (
+          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-10">
+            {cards.map((_, index) => (
+              <button
+                key={index}
+                type="button"
+                onClick={() => {
+                  setCurrentIndex(index)
+                  setIsPaused(true)
+                }}
+                className={`h-2 rounded-full transition-all ${
+                  index === currentIndex
+                    ? 'w-8 bg-white'
+                    : 'w-2 bg-white/50 hover:bg-white/75'
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  )
+}
 
 /**
  * TeamGrid Component - Design 10
@@ -33,27 +192,32 @@ export const TeamGrid: React.FC = () => {
             </div>
           </div>
 
-          {/* Card 2: Sliding Banners */}
+          {/* Card 2: Video */}
           <div className="lg:col-span-2 relative overflow-hidden" style={{ backgroundColor: 'var(--color-gray-lighter)', minHeight: 'var(--spacing-image-height-card-lg)', borderRadius: 'var(--radii-card-default)' }}>
-            <Banner
-              images={[
-                '/assets/banners/banner-ceramix.png',
-                '/assets/banners/banner-metal.png',
-                '/assets/banners/banner-sikkim.png',
-                '/assets/banners/banner-unesco.png',
-              ]}
-              alt="Project banners"
-              className="h-full w-full"
+            <video
+              src="/assets/Video/Final Render.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="h-full w-full object-cover"
             />
           </div>
 
-          {/* Cards 3 & 4: Wrapped in flex container for width adjustment */}
-          <div className="lg:col-span-2 flex flex-col lg:flex-row" style={{ gap: 'var(--spacing-5)' }}>
+          {/* Cards 3 & 4: Sliding carousel on mobile, side-by-side on desktop */}
+          <CardSlider>
             {/* Card 3: Black Card */}
-            <div className="lg:flex-1 bg-black text-white group hover:opacity-90 transition-all duration-300" style={{ minHeight: 'var(--spacing-image-height-hero)', borderRadius: 'var(--radii-card-default)' }}></div>
+            <div className="lg:flex-1 bg-black text-white p-8 flex flex-col justify-end group hover:opacity-90 transition-all duration-200 cursor-pointer" style={{ minHeight: 'var(--spacing-image-height-hero)', borderRadius: 'var(--radii-card-default)' }}>
+              <div className="flex justify-end">
+                <ArrowUpRight
+                  className="w-5 h-5 opacity-70 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-150"
+                  aria-hidden="true"
+                />
+              </div>
+            </div>
 
             {/* Card 4: Team Profile Card - Sarah Mitchell */}
-            <div className="lg:flex-1 bg-black text-white p-8 flex flex-col justify-between group hover:opacity-90 transition-all duration-300 cursor-pointer" style={{ minHeight: 'var(--spacing-image-height-hero)', borderRadius: 'var(--radii-card-default)' }}>
+            <div className="lg:flex-1 bg-black text-white p-8 flex flex-col justify-between group hover:opacity-90 transition-all duration-200 cursor-pointer" style={{ minHeight: 'var(--spacing-image-height-hero)', borderRadius: 'var(--radii-card-default)' }}>
               <div>
                 <p className="text-sm opacity-70 mb-6">
                   Our <span className="text-orange-400">Team</span>
@@ -63,15 +227,15 @@ export const TeamGrid: React.FC = () => {
               </div>
               <div className="flex justify-end">
                 <ArrowUpRight
-                  className="w-5 h-5 opacity-70 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
+                  className="w-5 h-5 opacity-70 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-150"
                   aria-hidden="true"
                 />
               </div>
             </div>
-          </div>
+          </CardSlider>
 
           {/* Card 6: AIONIQ Services Card - Design 11 */}
-          <div className="lg:col-span-2 p-6 flex flex-col justify-between group hover:opacity-90 transition-all duration-300" style={{ backgroundColor: 'var(--color-gray-lightest)', minHeight: 'var(--spacing-image-height-card-lg)', borderRadius: 'var(--radii-card-default)' }}>
+          <div className="lg:col-span-2 p-6 flex flex-col justify-between group hover:opacity-90 transition-all duration-200" style={{ backgroundColor: 'var(--color-gray-lightest)', minHeight: 'var(--spacing-image-height-card-lg)', borderRadius: 'var(--radii-card-default)' }}>
             <div>
               <h4 className="mb-4 text-black" style={{ fontSize: 'var(--typography-h4-size-desktop)', fontWeight: 'var(--typography-h4-weight)' }}>
                 AIONIQ Services
@@ -80,7 +244,7 @@ export const TeamGrid: React.FC = () => {
                 {['AI Systems', 'Automations', 'UI/UX', 'Branding', 'Web Development', 'Consulting', 'Digital Products', 'Content Creation', 'Growth Marketing', 'Video Production', 'Creative Tech', 'Print Media', 'Advertisements'].map((service) => (
                   <span
                     key={service}
-                    className="inline-flex items-center justify-center rounded-md border px-2 py-0.5 font-medium w-fit whitespace-nowrap shrink-0 text-xs bg-secondary text-secondary-foreground hover:bg-primary/10 transition-colors cursor-pointer"
+                    className="inline-flex items-center justify-center rounded-md border px-2 py-0.5 font-medium w-fit whitespace-nowrap shrink-0 text-xs bg-secondary text-secondary-foreground hover:bg-primary/10 transition-colors duration-150 cursor-pointer"
                     style={{
                       borderColor: 'transparent',
                     }}
@@ -99,7 +263,7 @@ export const TeamGrid: React.FC = () => {
           </div>
 
           {/* Card 7: Visiting Card - Design 14.1 */}
-          <div className="lg:col-span-2 relative bg-background overflow-hidden shadow-2xl hover:shadow-3xl transition-shadow duration-300" style={{ minHeight: 'var(--spacing-image-height-hero)', borderRadius: 'var(--radii-card-default)' }}>
+          <div className="lg:col-span-2 relative bg-background overflow-hidden shadow-2xl hover:shadow-3xl transition-shadow duration-200" style={{ minHeight: 'var(--spacing-image-height-hero)', borderRadius: 'var(--radii-card-default)' }}>
             <div className="grid grid-cols-1 md:grid-cols-[2fr,3fr] h-full" style={{ minHeight: 'var(--spacing-image-height-hero)' }}>
               {/* Left Column - Dark Gradient */}
               <div className="relative bg-gradient-to-br from-slate-800 to-slate-900 dark:from-slate-900 dark:to-black p-6 sm:p-8 md:p-10 flex flex-col items-center justify-center overflow-hidden" style={{ minHeight: 'var(--spacing-image-height-card)' }}>

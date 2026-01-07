@@ -35,7 +35,10 @@ import {
 	Cpu,
 	User,
 	Mail,
+	Sun,
+	Moon,
 } from 'lucide-react';
+import { useTheme } from '@/components/providers/ThemeProvider';
 
 type LinkItem = {
 	title: string;
@@ -47,6 +50,7 @@ type LinkItem = {
 export function Header() {
 	const [open, setOpen] = React.useState(false);
 	const scrolled = useScroll(10);
+	const { theme, toggleTheme } = useTheme();
 
 	React.useEffect(() => {
 		if (open) {
@@ -133,6 +137,19 @@ export function Header() {
 						</NavigationMenuLink>
 					</NavigationMenuList>
 				</NavigationMenu>
+				<Button
+					size="icon"
+					variant="outline"
+					onClick={toggleTheme}
+					className="absolute right-16 md:right-4"
+					aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+				>
+					{theme === 'dark' ? (
+						<Sun className="size-5" />
+					) : (
+						<Moon className="size-5" />
+					)}
+				</Button>
 				<Button
 					size="icon"
 					variant="outline"

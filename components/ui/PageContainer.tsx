@@ -7,6 +7,7 @@ export interface PageContainerProps {
   mode?: ContainerMode
   className?: string
   as?: keyof JSX.IntrinsicElements
+  style?: React.CSSProperties
 }
 
 /**
@@ -26,6 +27,7 @@ export const PageContainer: React.FC<PageContainerProps> = ({
   mode = 'marketing',
   className = '',
   as: Component = 'div',
+  style,
 }) => {
   const maxWidthMap = {
     marketing: 'var(--marketing-max)',
@@ -39,6 +41,7 @@ export const PageContainer: React.FC<PageContainerProps> = ({
       className={`page-container mx-auto w-full ${className}`}
       style={{
         maxWidth: maxWidthMap[mode],
+        ...style,
       }}
       data-container-mode={mode}
     >

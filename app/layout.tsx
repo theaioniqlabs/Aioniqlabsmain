@@ -3,6 +3,8 @@ import '@/styles/globals.css'
 import { Header } from '@/components/ui/header-3'
 import { ThemeProvider } from '@/components/providers/ThemeProvider'
 import { Footer } from '@/components/ui/footer-section'
+import { IntelligenceLayer } from '@/components/providers/IntelligenceLayer'
+import { CrowdCanvas } from '@/components/ui/crowd-canvas'
 
 export const metadata: Metadata = {
   title: 'AiONIQ Labs - A Human-first Intelligent Design Systems',
@@ -28,10 +30,21 @@ export default function RootLayout({
       </head>
       <body>
         <ThemeProvider>
+          <IntelligenceLayer />
           <Header />
           <div className="pt-[57px] pb-12 lg:pt-[57px] lg:pb-0">
             {children}
           </div>
+          <section 
+            className="relative w-full"
+            style={{ 
+              zIndex: 0,
+              minHeight: '90vh'
+            }}
+            aria-label="Crowd Canvas Background"
+          >
+            <CrowdCanvas src="/images/peeps/all-peeps.png" rows={15} cols={7} />
+          </section>
           <Footer />
         </ThemeProvider>
       </body>

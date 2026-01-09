@@ -178,7 +178,7 @@ export const TeamGrid: React.FC = () => {
       }}
     >
       <PageContainer mode="visual">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4" style={{ gap: 'var(--spacing-5)' }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4" style={{ gap: 'var(--spacing-5)' }} data-interactive-group>
           {/* Card 1: Hero Card - "Teams Together" (2x2 on desktop) */}
           <div className="lg:row-span-2 lg:col-span-2 bg-black text-white p-10 md:p-12 flex flex-col justify-between" style={{ minHeight: 'var(--spacing-image-height-team)', borderRadius: 'var(--radii-card-default)' }}>
             <div>

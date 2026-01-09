@@ -13,22 +13,29 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>('light')
+  const [theme, setThemeState] = useState<Theme>(() => {
+    // Initialize theme from localStorage or system preference on client
+    if (typeof window !== 'undefined') {
+      const storedTheme = localStorage.getItem('theme') as Theme | null
+      if (storedTheme && (storedTheme === 'light' || storedTheme === 'dark')) {
+        return storedTheme
+      }
+      // Check system preference
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+      return prefersDark ? 'dark' : 'light'
+    }
+    return 'light'
+  })
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
     setMounted(true)
-    // Check localStorage first
-    const storedTheme = localStorage.getItem('theme') as Theme | null
-    if (storedTheme && (storedTheme === 'light' || storedTheme === 'dark')) {
-      setThemeState(storedTheme)
-      applyTheme(storedTheme)
+    // Apply initial theme on mount
+    const root = document.documentElement
+    if (theme === 'dark') {
+      root.classList.add('dark')
     } else {
-      // Check system preference
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-      const systemTheme: Theme = prefersDark ? 'dark' : 'light'
-      setThemeState(systemTheme)
-      applyTheme(systemTheme)
+      root.classList.remove('dark')
     }
   }, [])
 
@@ -42,6 +49,13 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       }
     }
   }
+
+  // Apply theme immediately when it changes
+  useEffect(() => {
+    if (mounted) {
+      applyTheme(theme)
+    }
+  }, [theme, mounted])
 
   const setTheme = (newTheme: Theme) => {
     setThemeState(newTheme)

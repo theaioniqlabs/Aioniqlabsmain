@@ -536,8 +536,8 @@ body {
   overflow-x: hidden;
   font-family: var(--typography-font-family-body);
   min-height: 100vh;
-  color: var(--color-text-primary);
-  background: var(--color-background-primary);
+  color: hsl(var(--foreground));
+  background: hsl(var(--background));
   font-size: 16px;
   line-height: 1.6;
   font-weight: 400;
@@ -936,4 +936,115 @@ nextjs-portal[data-cursor-element-id]:not(:has(*)) {
   width: 0 !important;
   height: 0 !important;
   visibility: hidden !important;
+}
+
+/* Intelligence Layer - Human-first Interactive Enhancements */
+
+/* Predictive Soft Snap - Transform via CSS variables */
+[data-interactive],
+a[href]:not([data-no-snap]),
+button:not([disabled]):not([data-no-snap]),
+[role="button"]:not([disabled]):not([data-no-snap]),
+[tabindex]:not([tabindex="-1"]):not([data-no-snap]),
+.group:not([data-no-snap]),
+[class*="cursor-pointer"]:not([data-no-snap]) {
+  transform: translate(
+    var(--snap-x, 0px),
+    var(--snap-y, 0px)
+  );
+  transition: transform 0.1s ease-out;
+  will-change: transform;
+}
+
+/* Ensure cursor-pointer elements are detected even with other classes */
+div[class*="cursor-pointer"],
+span[class*="cursor-pointer"] {
+  transform: translate(
+    var(--snap-x, 0px),
+    var(--snap-y, 0px)
+  );
+  transition: transform 0.1s ease-out;
+  will-change: transform;
+}
+
+/* Disable snap on elements that opt out */
+[data-no-snap] {
+  transform: none !important;
+  --snap-x: 0px !important;
+  --snap-y: 0px !important;
+}
+
+/* Focus Dimming - Opacity via CSS variable */
+.intelligence-dimmed {
+  opacity: var(--dim-opacity, 1) !important;
+  transition: opacity 0.2s ease-out;
+}
+
+/* Breathing Cursor Halo - Desktop only */
+#intelligence-cursor-halo {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    hsl(var(--primary) / 0.08) 0%,
+    hsl(var(--primary) / 0.04) 40%,
+    transparent 70%
+  );
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  display: none;
+  mix-blend-mode: normal;
+}
+
+/* Breathing animation */
+.intelligence-halo-breathing {
+  animation: intelligence-halo-breathe 5500ms ease-in-out infinite;
+}
+
+@keyframes intelligence-halo-breathe {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(2);
+    opacity: 0.6;
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  [data-interactive],
+  a[href],
+  button:not([disabled]),
+  [role="button"]:not([disabled]),
+  [tabindex]:not([tabindex="-1"]),
+  .group,
+  [class*="cursor-pointer"] {
+    transform: none !important;
+    transition: none !important;
+  }
+  
+  .intelligence-dimmed {
+    transition: none !important;
+  }
+  
+  #intelligence-cursor-halo {
+    display: none !important;
+    animation: none !important;
+  }
+  
+  .intelligence-halo-breathing {
+    animation: none !important;
+  }
+}
+
+/* Disable on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  #intelligence-cursor-halo {
+    display: none !important;
+  }
 }

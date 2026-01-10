@@ -2,6 +2,7 @@
 
 import React from 'react'
 import Image from 'next/image'
+import { useTheme } from '@/components/providers/ThemeProvider'
 
 export interface TextBannerProps {
   logo?: string
@@ -15,10 +16,14 @@ export interface TextBannerProps {
  * Uses white background
  */
 export const TextBanner: React.FC<TextBannerProps> = ({
-  logo = '/assets/aioniq-logo.svg',
+  logo,
   logoAlt = 'AIONIQ Labs',
   className = '',
 }) => {
+  const { theme } = useTheme()
+  
+  // Use provided logo or theme-aware default
+  const logoPath = logo || (theme === 'dark' ? '/assets/aioniq-logo-02.svg' : '/assets/aioniq-logo-01.svg')
   return (
     <section
       className={`w-full ${className}`}
@@ -44,7 +49,7 @@ export const TextBanner: React.FC<TextBannerProps> = ({
         }}
       >
         <Image
-          src={logo}
+          src={logoPath}
           alt={logoAlt}
           width={135}
           height={38}

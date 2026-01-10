@@ -73,7 +73,7 @@ export function Header() {
 			<nav className="mx-auto flex h-14 w-full max-w-5xl items-center justify-center px-4 relative overflow-visible">
 				<a href="/" className="absolute left-4 hover:opacity-70 transition-opacity">
 					<Image
-						src="/assets/aioniq-logo.svg"
+						src={theme === 'dark' ? '/assets/aioniq-logo-02.svg' : '/assets/aioniq-logo-01.svg'}
 						alt="AIONIQ Labs"
 						width={135}
 						height={38}
@@ -131,7 +131,7 @@ export function Header() {
 							</NavigationMenuContent>
 						</NavigationMenuItem>
 						<NavigationMenuLink className="px-4" asChild>
-							<a href="#" className="hover:bg-accent rounded-md p-2">
+							<a href="/pricing" className="hover:bg-accent rounded-md p-2">
 								Pricing
 							</a>
 						</NavigationMenuLink>

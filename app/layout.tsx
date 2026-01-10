@@ -43,7 +43,7 @@ export default function RootLayout({
             }}
             aria-label="Crowd Canvas Background"
           >
-            <CrowdCanvas src="/images/peeps/all-peeps.png" rows={15} cols={7} />
+            <CrowdCanvas src="/assets/People/all-public.png" rows={15} cols={7} />
           </section>
           <Footer />
         </ThemeProvider>

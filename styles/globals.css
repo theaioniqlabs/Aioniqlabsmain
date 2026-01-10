@@ -894,12 +894,16 @@ body.dg-scroll-lock {
 
 /* PageContainer responsive padding */
 .page-container[data-container-mode] {
-  padding-inline: var(--gutter-mobile);
+  padding-inline: var(--gutter-mobile); /* 10px on mobile */
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 @media (min-width: 1024px) {
   .page-container[data-container-mode] {
-    padding-inline: var(--gutter-desktop);
+    padding-inline: var(--gutter-desktop); /* 20px on desktop */
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
 }
 
@@ -1015,6 +1019,25 @@ span[class*="cursor-pointer"] {
   }
 }
 
+/* Infinite Scroll Animation for Client Logos */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50% - 0.5rem));
+  }
+}
+
+.animate-scroll {
+  animation: scroll var(--animation-duration, 80s) linear infinite;
+  animation-direction: var(--animation-direction, normal);
+}
+
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
+
 /* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
   [data-interactive],
@@ -1038,6 +1061,10 @@ span[class*="cursor-pointer"] {
   }
   
   .intelligence-halo-breathing {
+    animation: none !important;
+  }
+  
+  .animate-scroll {
     animation: none !important;
   }
 }

@@ -51,7 +51,7 @@ export default function HeroSection02() {
           boxSizing: 'content-box',
         }}
       >
-        <div className="text-center max-w-[700px] space-y-6 py-24 relative z-20 w-full">
+        <div className="text-center max-w-[1200px] space-y-6 py-24 relative z-20 w-full mx-auto">
           <motion.h1
             initial={false}
             animate={{ opacity: 1, y: 0 }}

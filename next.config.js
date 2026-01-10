@@ -2,6 +2,7 @@
 const nextConfig = {
   images: {
     formats: ['image/webp', 'image/avif'],
+    unoptimized: process.env.NODE_ENV === 'development', // Workaround for corrupted sharp
     remotePatterns: [
       {
         protocol: 'https',
@@ -30,10 +31,6 @@ const nextConfig = {
   },
   // Disable source maps in production to avoid path issues
   productionBrowserSourceMaps: false,
-  // Temporarily disable ESLint during build due to dependency corruption
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
   typescript: {
     ignoreBuildErrors: false,
   },

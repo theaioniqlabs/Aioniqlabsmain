@@ -283,7 +283,7 @@ const CrowdCanvas = ({ src, rows = 15, cols = 7 }: CrowdCanvasProps) => {
 };
 
 const Skiper39 = ({ 
-  src = "/images/peeps/all-peeps.png",
+  src = "/assets/People/all-public.png",
   rows = 15,
   cols = 7 
 }: { 

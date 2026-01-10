@@ -4,6 +4,7 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
+import { useTheme } from '@/components/providers/ThemeProvider'
 import {
   Home,
   Layers,
@@ -24,11 +25,15 @@ export interface Design9NavProps {
  * Based on Design 9 from UI-Design-direct-code.md
  */
 export const Design9Nav: React.FC<Design9NavProps> = ({
-  logo = '/assets/aioniq-logo.svg',
+  logo,
   logoAlt = 'AIONIQ Labs',
   className = '',
 }) => {
   const pathname = usePathname()
+  const { theme } = useTheme()
+  
+  // Use provided logo or theme-aware default
+  const logoPath = logo || (theme === 'dark' ? '/assets/aioniq-logo-02.svg' : '/assets/aioniq-logo-01.svg')
 
   const navItems = [
     { label: 'Home', href: '/', icon: Home },
@@ -64,7 +69,7 @@ export const Design9Nav: React.FC<Design9NavProps> = ({
               aria-label="AIONIQ Labs Home"
             >
               <Image
-                src={logo}
+                src={logoPath}
                 alt={logoAlt}
                 width={135}
                 height={38}
